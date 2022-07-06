@@ -3,15 +3,16 @@ package model;
 import java.util.Date;
 
 public class Apartment {
-    int idCH;
-    String address;
-    double price;
-    double area;
-    String picture;
-    String status;
-    String description;
-    Date datePost;
-    String classify;
+    private int idCH;
+    private String address;
+    private double price;
+    private double area;
+    private String picture;
+    private String status;
+    private String description;
+    private Date datePost;
+    private String classify;
+
     public Apartment() {
     }
 
