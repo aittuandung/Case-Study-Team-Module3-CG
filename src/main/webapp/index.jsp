@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,10 +22,10 @@
   <link href="EstateAgency/EstateAgency/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="EstateAgency/EstateAgency/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="EstateAgency/EstateAgency/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <!-- Template Main CSS File -->
   <link href="EstateAgency/EstateAgency/assets/css/style.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- =======================================================
   * Template Name: EstateAgency - v4.7.0
   * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
@@ -137,7 +138,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.jsp">Estate<span class="color-b">Agency</span></a>
+      <a class="navbar-brand text-brand" href="index.jsp"><img src="https://staticfile.batdongsan.com.vn/images/logo/h-logo.svg" alt=""></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
@@ -147,28 +148,34 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="EstateAgency/EstateAgency/about.html">About</a>
+            <a class="nav-link " href="about.html">About</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="EstateAgency/EstateAgency/property-grid.html">Property</a>
+            <a class="nav-link " href="property-grid.html">Property</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="EstateAgency/EstateAgency/blog-grid.html">Blog</a>
+            <a class="nav-link " href="blog-grid.html">Blog</a>
           </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item " href="EstateAgency/EstateAgency/property-single.html">Property Single</a>
-              <a class="dropdown-item " href="EstateAgency/EstateAgency/blog-single.html">Blog Single</a>
-              <a class="dropdown-item " href="EstateAgency/EstateAgency/agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item " href="EstateAgency/EstateAgency/agent-single.html">Agent Single</a>
+              <a class="dropdown-item " href="property-single.html">Property Single</a>
+              <a class="dropdown-item " href="blog-single.html">Blog Single</a>
+              <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
+              <a class="dropdown-item " href="agent-single.html">Agent Single</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="EstateAgency/EstateAgency/contact.html">Contact</a>
+            <a class="nav-link " href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Đăng Nhập</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Đăng Kí</a>
           </li>
         </ul>
       </div>
@@ -365,7 +372,7 @@
                 <h2 class="title-a">Latest Properties</h2>
               </div>
               <div class="title-link">
-                <a href="EstateAgency/EstateAgency/property-grid.html">All Property
+                <a href="property-grid.html">All Property
                   <span class="bi bi-chevron-right"></span>
                 </a>
               </div>
@@ -385,7 +392,7 @@
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="EstateAgency/EstateAgency/property-single.html">206 Mount
+                        <a href="property-single.html">206 Mount
                           <br /> Olive Road Two</a>
                       </h2>
                     </div>
@@ -433,7 +440,7 @@
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="EstateAgency/EstateAgency/property-single.html">157 West
+                        <a href="property-single.html">157 West
                           <br /> Central Park</a>
                       </h2>
                     </div>
@@ -441,7 +448,7 @@
                       <div class="price-box d-flex">
                         <span class="price-a">rent | $ 12.000</span>
                       </div>
-                      <a href="EstateAgency/EstateAgency/property-single.html" class="link-a">Click here to view
+                      <a href="property-single.html" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -481,7 +488,7 @@
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="EstateAgency/EstateAgency/property-single.html">245 Azabu
+                        <a href="property-single.html">245 Azabu
                           <br /> Nishi Park let</a>
                       </h2>
                     </div>
@@ -489,7 +496,7 @@
                       <div class="price-box d-flex">
                         <span class="price-a">rent | $ 12.000</span>
                       </div>
-                      <a href="EstateAgency/EstateAgency/property-single.html" class="link-a">Click here to view
+                      <a href="property-single.html" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -529,7 +536,7 @@
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="EstateAgency/EstateAgency/property-single.html">204 Montal
+                        <a href="property-single.html">204 Montal
                           <br /> South Bela Two</a>
                       </h2>
                     </div>
@@ -537,7 +544,7 @@
                       <div class="price-box d-flex">
                         <span class="price-a">rent | $ 12.000</span>
                       </div>
-                      <a href="EstateAgency/EstateAgency/property-single.html" class="link-a">Click here to view
+                      <a href="property-single.html" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -584,7 +591,7 @@
                 <h2 class="title-a">Best Agents</h2>
               </div>
               <div class="title-link">
-                <a href="EstateAgency/EstateAgency/agents-grid.html">All Agents
+                <a href="agents-grid.html">All Agents
                   <span class="bi bi-chevron-right"></span>
                 </a>
               </div>
@@ -601,7 +608,7 @@
                 <div class="card-header-d">
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="EstateAgency/EstateAgency/agent-single.html" class="link-two">Margaret Sotillo
+                      <a href="agent-single.html" class="link-two">Margaret Sotillo
                         <br> Escala</a>
                     </h3>
                   </div>
@@ -657,7 +664,7 @@
                 <div class="card-header-d">
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="EstateAgency/EstateAgency/agent-single.html" class="link-two">Stiven Spilver
+                      <a href="agent-single.html" class="link-two">Stiven Spilver
                         <br> Darw</a>
                     </h3>
                   </div>
@@ -713,7 +720,7 @@
                 <div class="card-header-d">
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="EstateAgency/EstateAgency/agent-single.html" class="link-two">Emma Toledo
+                      <a href="agent-single.html" class="link-two">Emma Toledo
                         <br> Cascada</a>
                     </h3>
                   </div>
@@ -771,10 +778,10 @@
           <div class="col-md-12">
             <div class="title-wrap d-flex justify-content-between">
               <div class="title-box">
-                <h2 class="title-a">Latest News</h2>
+                <h2 class="title-a">Bất động sản theo địa điểm</h2>
               </div>
               <div class="title-link">
-                <a href="EstateAgency/EstateAgency/blog-grid.html">All News
+                <a href="blog-grid.html">All News
                   <span class="bi bi-chevron-right"></span>
                 </a>
               </div>
@@ -788,21 +795,14 @@
             <div class="carousel-item-c swiper-slide">
               <div class="card-box-b card-shadow news-box">
                 <div class="img-box-b">
-                  <img src="EstateAgency/EstateAgency/assets/img/post-2.jpg" alt="" class="img-b img-fluid">
+                  <img src="https://www.invert.vn/media/uploads/uploads/04152713-thanh-pho-truc-thuoc-trung-uong-hai-phong.jpg" alt="" class="img-b img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-header-b">
-                    <div class="card-category-b">
-                      <a href="#" class="category-b">House</a>
-                    </div>
                     <div class="card-title-b">
-                      <h2 class="title-2">
-                        <a href="EstateAgency/EstateAgency/blog-single.html">House is comming
-                          <br> new</a>
-                      </h2>
-                    </div>
-                    <div class="card-date">
-                      <span class="date-b">18 Sep. 2017</span>
+                      <h4 class="title-2">
+                        <a href="blog-single.html">Thành Phố Hải Phòng</a>
+                      </h4>
                     </div>
                   </div>
                 </div>
@@ -812,21 +812,14 @@
             <div class="carousel-item-c swiper-slide">
               <div class="card-box-b card-shadow news-box">
                 <div class="img-box-b">
-                  <img src="EstateAgency/EstateAgency/assets/img/post-5.jpg" alt="" class="img-b img-fluid">
+                  <img src="https://www.invert.vn/media/uploads/uploads/04152844-thanh-pho-truc-thuoc-trung-uong-hcm.jpg" alt="" class="img-b img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-header-b">
-                    <div class="card-category-b">
-                      <a href="#" class="category-b">Travel</a>
-                    </div>
                     <div class="card-title-b">
                       <h2 class="title-2">
-                        <a href="EstateAgency/EstateAgency/blog-single.html">Travel is comming
-                          <br> new</a>
+                        <a href="blog-single.html">Thành Phố Hồ Chí Minh</a>
                       </h2>
-                    </div>
-                    <div class="card-date">
-                      <span class="date-b">18 Sep. 2017</span>
                     </div>
                   </div>
                 </div>
@@ -836,21 +829,14 @@
             <div class="carousel-item-c swiper-slide">
               <div class="card-box-b card-shadow news-box">
                 <div class="img-box-b">
-                  <img src="EstateAgency/EstateAgency/assets/img/post-7.jpg" alt="" class="img-b img-fluid">
+                  <img src="https://www.invert.vn/media/uploads/uploads/04152617-thanh-pho-truc-thuoc-trung-uong-ha-noi.jpg" alt="" class="img-b img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-header-b">
-                    <div class="card-category-b">
-                      <a href="#" class="category-b">Park</a>
-                    </div>
                     <div class="card-title-b">
                       <h2 class="title-2">
-                        <a href="EstateAgency/EstateAgency/blog-single.html">Park is comming
-                          <br> new</a>
+                        <a href="blog-single.html">Thành Phố Hà Nội</a>
                       </h2>
-                    </div>
-                    <div class="card-date">
-                      <span class="date-b">18 Sep. 2017</span>
                     </div>
                   </div>
                 </div>
@@ -860,21 +846,14 @@
             <div class="carousel-item-c swiper-slide">
               <div class="card-box-b card-shadow news-box">
                 <div class="img-box-b">
-                  <img src="EstateAgency/EstateAgency/assets/img/post-3.jpg" alt="" class="img-b img-fluid">
+                  <img src="https://www.invert.vn/media/uploads/uploads/04152916-thanh-pho-can-tho.jpg" alt="" class="img-b img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-header-b">
-                    <div class="card-category-b">
-                      <a href="#" class="category-b">Travel</a>
-                    </div>
                     <div class="card-title-b">
                       <h2 class="title-2">
-                        <a href="#">Travel is comming
-                          <br> new</a>
+                        <a href="blog-single.html">Thành Phố Cần Thơ</a>
                       </h2>
-                    </div>
-                    <div class="card-date">
-                      <span class="date-b">18 Sep. 2017</span>
                     </div>
                   </div>
                 </div>
@@ -976,21 +955,26 @@
         <div class="col-sm-12 col-md-4">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">EstateAgency</h3>
+              <h3 class="w-title-a text-brand"><img src="https://staticfile.batdongsan.com.vn/images/logo/logo-black.svg" alt=""></h3>
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                sed aute irure.
+                CÔNG TY CỔ PHẦN PROPERTYGURU VIỆT NAM
               </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
-                  <span class="color-text-a">Phone .</span> contact@example.com
+                  <span class="color-text-a">Address :</span> Tầng 31, Keangnam Hanoi Landmark, Phạm Hùng, Nam Từ Liêm, Hà Nội
                 </li>
                 <li class="color-a">
-                  <span class="color-text-a">Email .</span> +54 356 945234
+                  <span class="color-text-a">Phone :</span> (024) 3562 5939 - (024) 3562 5940
+                </li>
+                <li class="color-a">
+                  <span class="color-text-a">Email :</span> batdongsan@gmai.com.vn
+                </li>
+                <li class="color-a">
+                  <span class="color-text-a">Hotline :</span> 1900 1881
                 </li>
               </ul>
             </div>
