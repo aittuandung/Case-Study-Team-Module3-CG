@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Beautiful bootstrap login and registration form template free download - PHPKIDA</title>
+<title>Registration</title>
 <meta name="description" content="Beautiful bootstrap login and registration form template free download - registration form in html with validation template free download, bootstrap registration form template free download, bootstrap login and registration form template free download, student registration form template free download, registration form template bootstrap, registration form in html with validation code free download, registration form in html with css source code, registration form design in html and css with code"/>
 <meta name="robots" content="noodp"/>
 <meta name="keywords" content="registration form in html with validation template free download, bootstrap registration form template free download, bootstrap login and registration form template free download, student registration form template free download, registration form template bootstrap, registration form in html with validation code free download, registration form in html with css source code, registration form design in html and css with code"/>
@@ -49,7 +49,7 @@
   ga('send', 'pageview');
 
 </script>
-<div style="width:auto; height:300px; margin:auto; float:none; margin-bottom:10px; text-align:center; clear:both;">
+<div style="width:auto; height:20px; margin:auto; float:none; margin-bottom:10px; text-align:center; clear:both;">
 <script id="mNCC" language="javascript">
    medianet_width = "300";
    medianet_height = "250";
@@ -75,7 +75,7 @@
 				<div class="clearfix"></div>
 				<input type="submit" value="submit" name="register">
 		</form>
-		<p>Already Registered. <a href="index.jsp">Login</a></p>
+		<p>Already Registered. <a href="login.jsp">Login</a></p>
 </div>
 </div>
 </body>
