@@ -1,20 +1,22 @@
 package model;
 
 public class Customer {
-    int idKH ;
-    String fullName;
-    String birthDay;
-    String idCard;
-    String homeTown;
-    String phoneNumber;
-    String email;
-    double wallet;
+    private String userName ;
+    private String passWord;
+    private String fullName;
+    private String birthDay;
+    private String idCard;
+    private String homeTown;
+    private String phoneNumber;
+    private String email;
+    private double wallet;
 
     public Customer() {
     }
 
-    public Customer(int idKH, String fullName, String birthDay, String idCard, String homeTown, String phoneNumber, String email, double wallet) {
-        this.idKH = idKH;
+    public Customer(String userName, String passWord, String fullName, String birthDay, String idCard, String homeTown, String phoneNumber, String email, double wallet) {
+        this.userName = userName;
+        this.passWord = passWord;
         this.fullName = fullName;
         this.birthDay = birthDay;
         this.idCard = idCard;
@@ -24,12 +26,20 @@ public class Customer {
         this.wallet = wallet;
     }
 
-    public int getIdKH() {
-        return idKH;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setIdKH(int idKH) {
-        this.idKH = idKH;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
     public String getFullName() {
