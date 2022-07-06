@@ -49,7 +49,7 @@
   ga('send', 'pageview');
 
 </script>
-<div style="width:auto; height:20px; margin:auto; float:none; margin-bottom:10px; text-align:center; clear:both;">
+<div style="width:auto; height:5px; margin:auto; float:none; margin-bottom:10px; text-align:center; clear:both;">
 <script id="mNCC" language="javascript">
    medianet_width = "300";
    medianet_height = "250";
@@ -66,9 +66,9 @@
 <div class="phpkida-main">
 	<h2>Register Now</h2>
 		<form action="#" method="post">
-			<input type="text" class="ggg" name="Name" placeholder="NAME" required="">
-			<input type="email" class="ggg" name="Email" placeholder="E-MAIL" required="">
-			<input type="text" class="ggg" name="Phone" placeholder="PHONE" required="">
+			<input type="text" class="ggg" name="username" placeholder="NAME" required="">
+			<input type="email" class="ggg" name="email" placeholder="E-MAIL" required="">
+			<input type="text" class="ggg" name="phoneNumber" placeholder="PHONE" required="">
 			<input type="password" class="ggg" name="Password" placeholder="PASSWORD" required="">
 			<h4><input type="checkbox" />I agree to the Terms of Service and Privacy Policy</h4>
 			
