@@ -4,21 +4,23 @@ public class Customer {
     int idKH ;
     String fullName;
     String birthDay;
-    String idCart;
+    String idCard;
     String homeTown;
     String phoneNumber;
+    String email;
     double wallet;
 
     public Customer() {
     }
 
-    public Customer(int idKH, String fullName, String birthDay, String idCart, String homeTown, String phoneNumber, double wallet) {
+    public Customer(int idKH, String fullName, String birthDay, String idCard, String homeTown, String phoneNumber, String email, double wallet) {
         this.idKH = idKH;
         this.fullName = fullName;
         this.birthDay = birthDay;
-        this.idCart = idCart;
+        this.idCard = idCard;
         this.homeTown = homeTown;
         this.phoneNumber = phoneNumber;
+        this.email = email;
         this.wallet = wallet;
     }
 
@@ -46,12 +48,12 @@ public class Customer {
         this.birthDay = birthDay;
     }
 
-    public String getIdCart() {
-        return idCart;
+    public String getIdCard() {
+        return idCard;
     }
 
-    public void setIdCart(String idCart) {
-        this.idCart = idCart;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
     public String getHomeTown() {
@@ -68,6 +70,14 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public double getWallet() {

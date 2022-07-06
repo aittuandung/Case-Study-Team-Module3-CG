@@ -11,11 +11,11 @@ public class Apartment {
     String status;
     String description;
     Date datePost;
-
+    String classify;
     public Apartment() {
     }
 
-    public Apartment(int idCH, String address, double price, double area, String picture, String status, String description, Date datePost) {
+    public Apartment(int idCH, String address, double price, double area, String picture, String status, String description, Date datePost, String classify) {
         this.idCH = idCH;
         this.address = address;
         this.price = price;
@@ -24,6 +24,7 @@ public class Apartment {
         this.status = status;
         this.description = description;
         this.datePost = datePost;
+        this.classify = classify;
     }
 
     public int getIdCH() {
@@ -88,5 +89,13 @@ public class Apartment {
 
     public void setDatePost(Date datePost) {
         this.datePost = datePost;
+    }
+
+    public String getClassify() {
+        return classify;
+    }
+
+    public void setClassify(String classify) {
+        this.classify = classify;
     }
 }
