@@ -1,11 +1,11 @@
 package model;
 
 public class Sector {
-    int idKV;
-    String province;
-    String district;
-    String  subDistrict;
-
+    private int idKV;
+    private String province;
+    private String district;
+    private String  subDistrict;
+    
     public Sector() {
     }
 

@@ -1,7 +1,7 @@
 package model;
 
 public class Customer {
-    private String userName ;
+    private String userName;
     private String passWord;
     private String fullName;
     private String birthDay;
@@ -10,7 +10,7 @@ public class Customer {
     private String phoneNumber;
     private String email;
     private double wallet;
-
+    
     public Customer() {
     }
 
