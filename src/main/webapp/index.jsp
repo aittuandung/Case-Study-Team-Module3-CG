@@ -45,7 +45,7 @@
     </div>
     <span class="close-box-collapse right-boxed bi bi-x"></span>
     <div class="box-collapse-wrap form">
-      <form class="form-a">
+      <form class="form-a" action="/property" method="post">
         <div class="row">
           <div class="col-md-12 mb-2">
             <div class="form-group">
@@ -55,18 +55,18 @@
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-              <label class="pb-2" for="Type">Type</label>
+              <label class="pb-2" for="Type">Khu Vực</label>
               <select class="form-control form-select form-control-a" id="Type">
-                <option>All Type</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-                <option>Open House</option>
+                <option>Tất Cả</option>
+                <option>Theo Quận</option>
+                <option>Theo Huyện</option>
+                <option>Theo Xã</option>
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-              <label class="pb-2" for="city">City</label>
+              <label class="pb-2" for="city">Giá</label>
               <select class="form-control form-select form-control-a" id="city">
                 <option>All City</option>
                 <option>Alabama</option>
@@ -76,54 +76,54 @@
               </select>
             </div>
           </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="bedrooms">Bedrooms</label>
-              <select class="form-control form-select form-control-a" id="bedrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="garages">Garages</label>
-              <select class="form-control form-select form-control-a" id="garages">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="bathrooms">Bathrooms</label>
-              <select class="form-control form-select form-control-a" id="bathrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group mt-3">
-              <label class="pb-2" for="price">Min Price</label>
-              <select class="form-control form-select form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>$50,000</option>
-                <option>$100,000</option>
-                <option>$150,000</option>
-                <option>$200,000</option>
-              </select>
-            </div>
-          </div>
+<%--          <div class="col-md-6 mb-2">--%>
+<%--            <div class="form-group mt-3">--%>
+<%--              <label class="pb-2" for="bedrooms">Bedrooms</label>--%>
+<%--              <select class="form-control form-select form-control-a" id="bedrooms">--%>
+<%--                <option>Any</option>--%>
+<%--                <option>01</option>--%>
+<%--                <option>02</option>--%>
+<%--                <option>03</option>--%>
+<%--              </select>--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--          <div class="col-md-6 mb-2">--%>
+<%--            <div class="form-group mt-3">--%>
+<%--              <label class="pb-2" for="garages">Garages</label>--%>
+<%--              <select class="form-control form-select form-control-a" id="garages">--%>
+<%--                <option>Any</option>--%>
+<%--                <option>01</option>--%>
+<%--                <option>02</option>--%>
+<%--                <option>03</option>--%>
+<%--                <option>04</option>--%>
+<%--              </select>--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--          <div class="col-md-6 mb-2">--%>
+<%--            <div class="form-group mt-3">--%>
+<%--              <label class="pb-2" for="bathrooms">Bathrooms</label>--%>
+<%--              <select class="form-control form-select form-control-a" id="bathrooms">--%>
+<%--                <option>Any</option>--%>
+<%--                <option>01</option>--%>
+<%--                <option>02</option>--%>
+<%--                <option>03</option>--%>
+<%--              </select>--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--          <div class="col-md-6 mb-2">--%>
+<%--            <div class="form-group mt-3">--%>
+<%--              <label class="pb-2" for="price">Min Price</label>--%>
+<%--              <select class="form-control form-select form-control-a" id="price">--%>
+<%--                <option>Unlimite</option>--%>
+<%--                <option>$50,000</option>--%>
+<%--                <option>$100,000</option>--%>
+<%--                <option>$150,000</option>--%>
+<%--                <option>$200,000</option>--%>
+<%--              </select>--%>
+<%--            </div>--%>
+<%--          </div>--%>
           <div class="col-md-12">
-            <button type="submit" class="btn btn-b">Search Property</button>
+            <button type="submit" class="btn btn-b" >Search Property</button>
           </div>
         </div>
       </form>
@@ -192,7 +192,7 @@
 
     <div class="swiper-wrapper">
 
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-1.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(https://file4.batdongsan.com.vn/resize/745x510/2022/06/27/20220627225903-c75e_wm.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -200,11 +200,8 @@
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Doral, Florida
-                      <br> 78345
-                    </p>
                     <h1 class="intro-title mb-4 ">
-                      <span class="color-b">204 </span> Mount
+                      <span class="color-b">204 </span>
                       <br> Olive Road Two
                     </h1>
                     <p class="intro-subtitle intro-price">
@@ -217,7 +214,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-2.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(https://file4.batdongsan.com.vn/resize/745x510/2022/06/30/20220630091934-57f9_wm.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -242,7 +239,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-3.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(https://file4.batdongsan.com.vn/resize/745x510/2020/09/30/dYAiw5Kr/20200930140148-a366_wm.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
