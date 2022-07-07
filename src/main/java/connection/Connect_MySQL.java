@@ -5,16 +5,21 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connect_MySQL {
-    public static Connection getConnect(){
+    private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
+    private String jdbcUsername = "root";
+    private String jdbcPassword = "123456";
+    public Connection getConnection() {
+        Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/CASE_STUDY_MD3?useSSL=false";
-            String username = "root";
-            String pass = "mysqlpass";
-            return DriverManager.getConnection(url,username,pass);
-        } catch (ClassNotFoundException | SQLException e) {
+            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
-            return null;
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        return connection;
     }
 }

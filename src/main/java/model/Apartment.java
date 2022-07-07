@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Apartment {
     private int idCH;
@@ -12,11 +12,12 @@ public class Apartment {
     private String description;
     private Date datePost;
     private String classify;
-
+    private Customer customer;
+    private Sector sector;
     public Apartment() {
     }
 
-    public Apartment(int idCH, String address, double price, double area, String picture, String status, String description, Date datePost, String classify) {
+    public Apartment(int idCH, String address, double price, double area, String picture, String status, String description, Date datePost, String classify, Customer customer, Sector sector) {
         this.idCH = idCH;
         this.address = address;
         this.price = price;
@@ -26,6 +27,8 @@ public class Apartment {
         this.description = description;
         this.datePost = datePost;
         this.classify = classify;
+        this.customer = customer;
+        this.sector = sector;
     }
 
     public int getIdCH() {
@@ -98,5 +101,21 @@ public class Apartment {
 
     public void setClassify(String classify) {
         this.classify = classify;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Sector getSector() {
+        return sector;
+    }
+
+    public void setSector(Sector sector) {
+        this.sector = sector;
     }
 }
