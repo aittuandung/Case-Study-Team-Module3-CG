@@ -20,6 +20,9 @@ public class SectorDAO implements CRUD<Sector> {
 
     private static final String SELECT_ALL_SECTOR = "select * from sector where province like concat('%',?,'%')";
 
+    private static final String UPDATE_USERS_SECTOR = "update sector set province = ?,district= ?, subDistrict =? where idKV > 0;";
+
+
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {
@@ -97,6 +100,15 @@ public class SectorDAO implements CRUD<Sector> {
 
     @Override
     public boolean update(Sector sector) throws SQLException {
-        return false;
+        try (Connection connection = connect_mySQL.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USERS_SECTOR);
+            preparedStatement.setString(1, sector.getProvince());
+            preparedStatement.setString(2, sector.getDistrict());
+            preparedStatement.setString(3, sector.getSubDistrict());
+            return preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return false;
+        }
     }
 }
