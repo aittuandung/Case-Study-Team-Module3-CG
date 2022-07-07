@@ -46,17 +46,20 @@ public class LoginServlet extends HttpServlet {
                 String userName = req.getParameter("username");
                 String passWord=req.getParameter("password");
                 if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
-                    req.setAttribute("username",userName);}else
+                    req.setAttribute("username",userName);
+                    dispatcher=req.getRequestDispatcher("EditProduct.jsp");
+                    dispatcher.forward(req,resp);
+                }else
                     if (userName.equals("admin")&& passWord.equals("admin")){
                     dispatcher=req.getRequestDispatcher("EditProduct.jsp");
                     dispatcher.forward(req,resp);
                 }
                 break;
-            case "registration":
+            case "register":
                 String user=req.getParameter("username");
                 String email=req.getParameter("email");
                 String phone=req.getParameter("phoneNumber");
-                String pass=req.getParameter("passWord");
+                String pass=req.getParameter("Password");
                 loginAndRegistrationDao.addAccount(user,email,phone,pass);
                 break;
         }

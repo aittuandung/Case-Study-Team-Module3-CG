@@ -65,7 +65,7 @@
 <div class="">
 <div class="phpkida-main">
 	<h2>Register Now</h2>
-		<form action="/login&action=register" method="post">
+		<form action="/login?action=register" method="post">
 			<input type="text" class="ggg" name="username" placeholder="NAME" required="">
 			<input type="email" class="ggg" name="email" placeholder="E-MAIL" required="">
 			<input type="text" class="ggg" name="phoneNumber" placeholder="PHONE" required="">

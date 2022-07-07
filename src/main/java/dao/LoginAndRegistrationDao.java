@@ -9,18 +9,19 @@ import connection.Connect_MySQL;
 import model.Customer;
 
 public class LoginAndRegistrationDao {
-    String addAccount="insert into (userName,email,phoneNumber,passWord) value (?,?,?,?)";
-    String loginAccount= "select userName,passWord from Customer where userName=? and passWord=? ";
+    String addAccount="insert into case_study_md3.customer (userName,email,phoneNumber,passWord) value (?,?,?,?)";
+    String loginAccount= "select userName,passWord from case_study_md3.Customer where userName=? and passWord=? ";
 
     Connect_MySQL connect_mySQL = new Connect_MySQL();
 
-    public void addAccount(String userName,String email,String phoneNumber,String pasWord){
+    public boolean addAccount(String userName,String email,String phoneNumber,String pasWord){
         try (Connection connection = connect_mySQL.getConnection()){
             PreparedStatement statement=connection.prepareStatement(addAccount);
             statement.setString(1,userName);
             statement.setString(2,email);
             statement.setString(3,phoneNumber);
             statement.setString(4,pasWord);
+            return statement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -28,10 +29,11 @@ public class LoginAndRegistrationDao {
     public boolean getAllCustomer(String userName,String passWord){
         try(Connection connection= connect_mySQL.getConnection()) {
             PreparedStatement statement=connection.prepareStatement(loginAccount);
+            statement.setString(1,userName);
+            statement.setString(2,passWord);
             ResultSet resultSet=statement.executeQuery();
             resultSet.next();
             String name=resultSet.getString("userName");
-            String pass=resultSet.getString("passWord");
             if (name!=null){
                 return true;
             } return false;
