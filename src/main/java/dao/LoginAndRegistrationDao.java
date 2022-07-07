@@ -11,8 +11,11 @@ import model.Customer;
 public class LoginAndRegistrationDao {
     String addAccount="insert into (userName,email,phoneNumber,passWord) value (?,?,?,?)";
     String loginAccount= "select userName,passWord from Customer where userName=? and passWord=? ";
+
+    Connect_MySQL connect_mySQL = new Connect_MySQL();
+
     public void addAccount(String userName,String email,String phoneNumber,String pasWord){
-        try (Connection connection = Connect_MySQL.getConnect()){
+        try (Connection connection = connect_mySQL.getConnection()){
             PreparedStatement statement=connection.prepareStatement(addAccount);
             statement.setString(1,userName);
             statement.setString(2,email);
@@ -23,7 +26,7 @@ public class LoginAndRegistrationDao {
         }
     }
     public boolean getAllCustomer(String userName,String passWord){
-        try(Connection connection= Connect_MySQL.getConnect()) {
+        try(Connection connection= connect_mySQL.getConnection()) {
             PreparedStatement statement=connection.prepareStatement(loginAccount);
             ResultSet resultSet=statement.executeQuery();
             resultSet.next();
