@@ -23,7 +23,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-		      	<form action="/case" class="signin-form" method="post">
+		      	<form action="/login?action=login" class="signin-form" method="post">
 		      		<div class="form-group">
 		      			<input type="text" name="username" class="form-control" placeholder="Username" required>
 		      		</div>
@@ -32,7 +32,7 @@
 						<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 					</div>
 					<div class="form-group">
-						<button type="submit" class="form-control btn btn-primary submit px-3" ><a href="/case&action=login" ></a>Sign In</button>
+						<button type="submit" class="form-control btn btn-primary submit px-3" >Sign In</button>
 					</div>
 				</form>
 	            <div class="form-group d-md-flex">
@@ -40,7 +40,7 @@
 						<a href="/registration.jsp" style="color: #fff">Register</a>
 								</div>
 								<div class="w-50 text-md-right">
-									<a href="#" style="color: #fff">Forgot Password</a>
+									<a href="/registration.jsp" style="color: #fff">Forgot Password</a>
 								</div>
 	            </div>
 		      </div>

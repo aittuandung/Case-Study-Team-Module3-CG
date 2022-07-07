@@ -1,5 +1,6 @@
 package controller;
 
+import dao.LoginAndRegistrationDao;
 import model.Customer;
 
 import javax.servlet.RequestDispatcher;
@@ -12,8 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/user")
-public class CustomerServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/login")
+public class LoginServlet extends HttpServlet {
     List<Customer> customers=new ArrayList<>();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,7 +23,6 @@ public class CustomerServlet extends HttpServlet {
         if (action==null){
             action="";
         }
-        System.out.println("vao get");
         switch (action){
             case "login":
 //                login(req,resp,dispatcher);
@@ -36,6 +36,7 @@ public class CustomerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = null;
+        LoginAndRegistrationDao loginAndRegistrationDao=new LoginAndRegistrationDao();
         String action=req.getParameter("action");
         if (action==null){
             action="";
@@ -44,14 +45,20 @@ public class CustomerServlet extends HttpServlet {
             case "login":
                 String userName = req.getParameter("username");
                 String passWord=req.getParameter("password");
-                for (Customer c:customers
-                ) {
-                    if (c.getUserName().equals(userName)&&c.getPassWord().equals(passWord)){
-                        req.setAttribute("customer",customers);
-                        dispatcher=req.getRequestDispatcher("index.jsp");
-                        dispatcher.forward(req,resp);
-                    }
+                if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
+                    req.setAttribute("username",userName);}else
+                    if (userName.equals("admin")&& passWord.equals("admin")){
+                    dispatcher=req.getRequestDispatcher("EditProduct.jsp");
+                    dispatcher.forward(req,resp);
                 }
+                break;
+            case "registration":
+                String user=req.getParameter("username");
+                String email=req.getParameter("email");
+                String phone=req.getParameter("phoneNumber");
+                String pass=req.getParameter("passWord");
+                loginAndRegistrationDao.addAccount(user,email,phone,pass);
+                break;
         }
     }
 }
