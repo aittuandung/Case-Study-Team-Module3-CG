@@ -11,20 +11,20 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="EstateAgency/EstateAgency/assets/img/favicon.png" rel="icon">
-  <link href="EstateAgency/EstateAgency/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="EstateAgency/EstateAgency/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="EstateAgency/EstateAgency/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="EstateAgency/EstateAgency/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="EstateAgency/EstateAgency/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <!-- Template Main CSS File -->
-  <link href="EstateAgency/EstateAgency/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- =======================================================
   * Template Name: EstateAgency - v4.7.0
@@ -171,12 +171,12 @@
           <li class="nav-item">
             <a class="nav-link " href="contact.html">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Đăng Nhập</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Đăng Kí</a>
-          </li>
+<%--          <li class="nav-item">--%>
+<%--            <a class="nav-link" href="#">Đăng Nhập</a>--%>
+<%--          </li>--%>
+<%--          <li class="nav-item">--%>
+<%--            <a class="nav-link" href="#">Đăng Kí</a>--%>
+<%--          </li>--%>
         </ul>
       </div>
 
@@ -192,7 +192,7 @@
 
     <div class="swiper-wrapper">
 
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(EstateAgency/EstateAgency/assets/img/slide-1.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-1.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -217,7 +217,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(EstateAgency/EstateAgency/assets/img/slide-2.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-2.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -242,7 +242,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(EstateAgency/EstateAgency/assets/img/slide-3.jpg)">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-3.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -386,7 +386,7 @@
             <div class="carousel-item-b swiper-slide">
               <div class="card-box-a card-shadow">
                 <div class="img-box-a">
-                  <img src="EstateAgency/EstateAgency/assets/img/property-6.jpg" alt="" class="img-a img-fluid">
+                  <img src="assets/img/property-6.jpg" alt="" class="img-a img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
@@ -434,7 +434,7 @@
             <div class="carousel-item-b swiper-slide">
               <div class="card-box-a card-shadow">
                 <div class="img-box-a">
-                  <img src="EstateAgency/EstateAgency/assets/img/property-3.jpg" alt="" class="img-a img-fluid">
+                  <img src="assets/img/property-3.jpg" alt="" class="img-a img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
@@ -482,7 +482,7 @@
             <div class="carousel-item-b swiper-slide">
               <div class="card-box-a card-shadow">
                 <div class="img-box-a">
-                  <img src="EstateAgency/EstateAgency/assets/img/property-7.jpg" alt="" class="img-a img-fluid">
+                  <img src="assets/img/property-7.jpg" alt="" class="img-a img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
@@ -530,7 +530,7 @@
             <div class="carousel-item-b swiper-slide">
               <div class="card-box-a card-shadow">
                 <div class="img-box-a">
-                  <img src="EstateAgency/EstateAgency/assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+                  <img src="assets/img/property-10.jpg" alt="" class="img-a img-fluid">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
@@ -602,7 +602,7 @@
           <div class="col-md-4">
             <div class="card-box-d">
               <div class="card-img-d">
-                <img src="EstateAgency/EstateAgency/assets/img/agent-4.jpg" alt="" class="img-d img-fluid">
+                <img src="assets/img/agent-4.jpg" alt="" class="img-d img-fluid">
               </div>
               <div class="card-overlay card-overlay-hover">
                 <div class="card-header-d">
@@ -658,7 +658,7 @@
           <div class="col-md-4">
             <div class="card-box-d">
               <div class="card-img-d">
-                <img src="EstateAgency/EstateAgency/assets/img/agent-1.jpg" alt="" class="img-d img-fluid">
+                <img src="assets/img/agent-1.jpg" alt="" class="img-d img-fluid">
               </div>
               <div class="card-overlay card-overlay-hover">
                 <div class="card-header-d">
@@ -714,7 +714,7 @@
           <div class="col-md-4">
             <div class="card-box-d">
               <div class="card-img-d">
-                <img src="EstateAgency/EstateAgency/assets/img/agent-5.jpg" alt="" class="img-d img-fluid">
+                <img src="assets/img/agent-5.jpg" alt="" class="img-d img-fluid">
               </div>
               <div class="card-overlay card-overlay-hover">
                 <div class="card-header-d">
@@ -888,7 +888,7 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <div class="testimonial-img">
-                      <img src="EstateAgency/EstateAgency/assets/img/testimonial-1.jpg" alt="" class="img-fluid">
+                      <img src="assets/img/testimonial-1.jpg" alt="" class="img-fluid">
                     </div>
                   </div>
                   <div class="col-sm-12 col-md-6">
@@ -903,7 +903,7 @@
                       </p>
                     </div>
                     <div class="testimonial-author-box">
-                      <img src="EstateAgency/EstateAgency/assets/img/mini-testimonial-1.jpg" alt="" class="testimonial-avatar">
+                      <img src="assets/img/mini-testimonial-1.jpg" alt="" class="testimonial-avatar">
                       <h5 class="testimonial-author">Albert & Erika</h5>
                     </div>
                   </div>
@@ -916,7 +916,7 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <div class="testimonial-img">
-                      <img src="EstateAgency/EstateAgency/assets/img/testimonial-2.jpg" alt="" class="img-fluid">
+                      <img src="assets/img/testimonial-2.jpg" alt="" class="img-fluid">
                     </div>
                   </div>
                   <div class="col-sm-12 col-md-6">
@@ -931,7 +931,7 @@
                       </p>
                     </div>
                     <div class="testimonial-author-box">
-                      <img src="EstateAgency/EstateAgency/assets/img/mini-testimonial-2.jpg" alt="" class="testimonial-avatar">
+                      <img src="assets/img/mini-testimonial-2.jpg" alt="" class="testimonial-avatar">
                       <h5 class="testimonial-author">Pablo & Emma</h5>
                     </div>
                   </div>
@@ -1114,12 +1114,12 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="EstateAgency/EstateAgency/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="EstateAgency/EstateAgency/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="EstateAgency/EstateAgency/assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="EstateAgency/EstateAgency/assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 
