@@ -171,12 +171,12 @@
           <li class="nav-item">
             <a class="nav-link " href="contact.html">Contact</a>
           </li>
-<%--          <li class="nav-item">--%>
-<%--            <a class="nav-link" href="#">Đăng Nhập</a>--%>
-<%--          </li>--%>
-<%--          <li class="nav-item">--%>
-<%--            <a class="nav-link" href="#">Đăng Kí</a>--%>
-<%--          </li>--%>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Đăng Nhập</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Đăng Kí</a>
+          </li>
         </ul>
       </div>
 
