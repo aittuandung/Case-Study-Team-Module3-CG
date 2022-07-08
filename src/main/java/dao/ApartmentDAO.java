@@ -221,7 +221,17 @@ public class ApartmentDAO implements CRUD<Apartment> {
                 listseach.set(i,"");
             };
         }
+        try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_APARTMENT_SQL)){
+            preparedStatement.setString(1,classify);
+            preparedStatement.setString(2,price);
+            preparedStatement.setString(3,area);
+            preparedStatement.setString(4,province);
+            preparedStatement.setString(5,district);
 
+        } catch (
+                SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

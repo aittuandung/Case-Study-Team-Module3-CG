@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
                 String userName = req.getParameter("username");
                 String passWord=req.getParameter("password");
                 if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
+                    Login.account=userName;
                     req.setAttribute("username",userName);
                     dispatcher=req.getRequestDispatcher("EditProduct.jsp");
                     dispatcher.forward(req,resp);
@@ -53,7 +54,7 @@ public class LoginServlet extends HttpServlet {
                     if (userName.equals("admin")&& passWord.equals("admin")){
                     dispatcher=req.getRequestDispatcher("EditProduct.jsp");
                     dispatcher.forward(req,resp);
-                }
+                } else Login.account=null;
                 break;
             case "register":
                 String user=req.getParameter("username");
