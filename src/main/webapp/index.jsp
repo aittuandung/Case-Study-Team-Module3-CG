@@ -165,7 +165,7 @@
               <a class="dropdown-item " href="property-single.html">Property Single</a>
               <a class="dropdown-item " href="blog-single.html">Blog Single</a>
               <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item " href="agent-single.html">Agent Single</a>
+              <a class="dropdown-item " href="agent-single.jsp">Agent Single</a>
             </div>
           </li>
           <li class="nav-item">
@@ -608,7 +608,7 @@
                 <div class="card-header-d">
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="agent-single.html" class="link-two">Margaret Sotillo
+                      <a href="agent-single.jsp" class="link-two">Margaret Sotillo
                         <br> Escala</a>
                     </h3>
                   </div>
@@ -664,7 +664,7 @@
                 <div class="card-header-d">
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="agent-single.html" class="link-two">Stiven Spilver
+                      <a href="agent-single.jsp" class="link-two">Stiven Spilver
                         <br> Darw</a>
                     </h3>
                   </div>
@@ -720,7 +720,7 @@
                 <div class="card-header-d">
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="agent-single.html" class="link-two">Emma Toledo
+                      <a href="agent-single.jsp" class="link-two">Emma Toledo
                         <br> Cascada</a>
                     </h3>
                   </div>
