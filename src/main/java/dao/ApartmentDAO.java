@@ -35,7 +35,7 @@ public class ApartmentDAO implements CRUD<Apartment> {
 
     private static final String SELECT_APARTMENT_BY_SECTOR = "select * from CASE_STUDY_MD3.apartment join CASE_STUDY_MD3.sector on apartment.idKV = sector.idKV where province= ?";
 
-    private static final String SEARCH_APARTMENT_SQL = "select * from CASE_STUDY_MD3.apartment as a join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV where classify like concat('%',?,'%') and price like concat('%',?,'%') and area like concat('%',?,'%') and province like concat('%',?,'%') and district like concat ('%',?,'%')";
+    private static final String SEARCH_APARTMENT_SQL = "select * from CASE_STUDY_MD3.customer as ctm join CASE_STUDY_MD3.apartment as a on ctm.userName=a.userName join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV where classify like concat('%',?,'%') and price like concat('%',?,'%') and area like concat('%',?,'%') and province like concat('%',?,'%') and district like concat ('%',?,'%')";
 
 
     Connection connection = connect_mySQL.getConnection();
@@ -211,8 +211,9 @@ public class ApartmentDAO implements CRUD<Apartment> {
         }
         return apartments;
     }
-    public void search(String classify,String price,String area, String province, String district){
+    public List<Apartment> search(String classify,String price,String area, String province, String district){
         List<String> listseach= new ArrayList<>();
+        List<Apartment> apartments=new ArrayList<>();
         listseach.add(classify);
         listseach.add(price);
         listseach.add(area);
@@ -229,11 +230,36 @@ public class ApartmentDAO implements CRUD<Apartment> {
             preparedStatement.setString(3,area);
             preparedStatement.setString(4,province);
             preparedStatement.setString(5,district);
-
+            ResultSet resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String provinces= resultSet.getString("province");
+                String districts=resultSet.getString("district");
+                String subDistrict=resultSet.getString("subDistrict");
+                int idKV=resultSet.getInt("idKV");
+                int idCH=resultSet.getInt("idCH");
+                String address=resultSet.getString("address");
+                double prices=resultSet.getDouble("price");
+                double areas=resultSet.getDouble("area");
+                String img=resultSet.getString("picture");
+                String status=resultSet.getString("status");
+                String description=resultSet.getString("description");
+                Date datepost=resultSet.getDate("datePost");
+                String classifys=resultSet.getString("classifys");
+                String userName=resultSet.getString("userName");
+                String passWord=resultSet.getString("passWord");
+                String fullName=resultSet.getString("fullName");
+                String birthday=resultSet.getString("birthDay");
+                String idCard=resultSet.getString("idCard");
+                String homeTown=resultSet.getString("homeTown");
+                String phoneNumber=resultSet.getString("phoneNumber");
+                String email=resultSet.getString("email");
+                double wallet=resultSet.getDouble("wallet");
+                apartments.add(new Apartment(idCH,address,prices,areas,img,status,description,datepost,classifys,new Customer(userName,passWord,fullName,birthday,idCard,homeTown,phoneNumber,email,wallet),new Sector(idKV,provinces,districts,subDistrict)));
+            }
         } catch (
                 SQLException e) {
             throw new RuntimeException(e);
-        }
+        }return apartments;
     }
 
 }
