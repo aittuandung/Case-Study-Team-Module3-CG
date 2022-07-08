@@ -16,7 +16,7 @@ public class ApartmentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        req.setAttribute("listCH",apartmentDAO.selectAll());
-//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/property-grid.html");
+//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/showapartment.jsp");
 //        requestDispatcher.forward(req,resp);
 
     }

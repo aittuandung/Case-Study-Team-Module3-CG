@@ -66,10 +66,15 @@
 <div class="phpkida-main">
 	<h2>Register Now</h2>
 		<form action="/login?action=register" method="post">
-			<input type="text" class="ggg" name="username" placeholder="NAME" required="">
-			<input type="email" class="ggg" name="email" placeholder="E-MAIL" required="">
-			<input type="text" class="ggg" name="phoneNumber" placeholder="PHONE" required="">
-			<input type="password" class="ggg" name="Password" placeholder="PASSWORD" required="">
+			<input type="text" class="ggg" name="username" placeholder="USER NAME" required="">
+			<input type="password" class="ggg" name="passWord" placeholder="PASSWORD" required="">
+			<input type="text" class="ggg" name="fullName" placeholder="FULL NAME" required="">
+			<input type="date" class="ggg" name="birthDay" placeholder="BIRTH DAY" required="">
+			<input type="text" class="ggg" name="idCard" placeholder="ID NUMBER" required="">
+			<input type="text" class="ggg" name="homeTown" placeholder="HOME TOWN" required="">
+			<input type="text" class="ggg" name="phoneNumber" placeholder="PHONE NUMBER" required="">
+			<input type="text" class="ggg" name="email" placeholder="EMAIL" required="">
+
 			<h4><input type="checkbox" />I agree to the Terms of Service and Privacy Policy</h4>
 			
 				<div class="clearfix"></div>

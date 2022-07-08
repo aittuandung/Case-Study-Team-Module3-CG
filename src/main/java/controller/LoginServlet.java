@@ -47,20 +47,27 @@ public class LoginServlet extends HttpServlet {
                 String passWord=req.getParameter("password");
                 if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     req.setAttribute("username",userName);
-                    dispatcher=req.getRequestDispatcher("EditProduct.jsp");
+                    dispatcher=req.getRequestDispatcher("/index1.jsp");
                     dispatcher.forward(req,resp);
-                }else
-                    if (userName.equals("admin")&& passWord.equals("admin")){
-                    dispatcher=req.getRequestDispatcher("EditProduct.jsp");
+                }else if (userName.equals("admin")&& passWord.equals("admin")){
+                    dispatcher=req.getRequestDispatcher("admin.jsp");
                     dispatcher.forward(req,resp);
-                }
+                } else
+                    dispatcher=req.getRequestDispatcher("login.jsp");
+                    dispatcher.forward(req,resp);
                 break;
             case "register":
                 String user=req.getParameter("username");
+                String pass=req.getParameter("passWord");
+                String fullName=req.getParameter("fullName");
+                String birthDay=req.getParameter("birthDay");
+                String idCard=req.getParameter("idCard");
+                String homeTown=req.getParameter("homeTown");
+                String phoneNumber=req.getParameter("phoneNumber");
                 String email=req.getParameter("email");
-                String phone=req.getParameter("phoneNumber");
-                String pass=req.getParameter("Password");
-                loginAndRegistrationDao.addAccount(user,email,phone,pass);
+
+                loginAndRegistrationDao.addAccount(user,pass,fullName,birthDay,idCard,homeTown,phoneNumber,email);
+                resp.sendRedirect("/login.jsp");
                 break;
         }
     }
