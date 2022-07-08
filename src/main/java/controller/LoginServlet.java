@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
                     dispatcher=req.getRequestDispatcher("admin.jsp");
                     dispatcher.forward(req,resp);
                 }else if (!loginAndRegistrationDao.getAllCustomer(userName,passWord)){
-                    resp.sendRedirect("/index.jsp");
+                    resp.sendRedirect("/login.jsp");
                 }
                 break;
             case "register":
