@@ -168,10 +168,23 @@
                         <a class="dropdown-item " href="showcustormmer.jsp">Agent Single</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="#">
                         Xin Chào ${username}
                     </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item " href="#">Đăng Xuất</a>
+                        <a class="dropdown-item " href="#">Chỉnh sửa thông tin</a>
+                    </div>
+                </li>
+<%--                <li class="nav-item">--%>
+<%--                    <a class="nav-link" href="#">--%>
+<%--                        Xin Chào ${username}--%>
+<%--                    </a>--%>
+<%--                </li>--%>
+                <li class="nav-item dropdown">
+
+                        <a href="/inputApartment.jsp" class="nav-link">Tạo bài đăng</a>
                 </li>
 
             </ul>
