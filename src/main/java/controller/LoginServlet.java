@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 //                login(req,resp,dispatcher);
 //                break;
             default:
-                dispatcher=req.getRequestDispatcher("login.jsp");
+                dispatcher=req.getRequestDispatcher("index.jsp");
                 dispatcher.forward(req,resp);
         }
     }
