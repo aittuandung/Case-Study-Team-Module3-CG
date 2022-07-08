@@ -147,15 +147,15 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="about.html">About</a>
+            <a class="nav-link " href="about.jsp">About</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="property-grid.html">Property</a>
+            <a class="nav-link " href="showapartment.jsp">Property</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="blog-grid.html">Blog</a>
+            <a class="nav-link " href="blog-grid.jsp">Blog</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -164,7 +164,7 @@
               <a class="dropdown-item " href="property-single.html">Property Single</a>
               <a class="dropdown-item " href="blog-single.html">Blog Single</a>
               <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item active" href="agent-single.html">Agent Single</a>
+              <a class="dropdown-item active" href="showcustormmer.jsp">Agent Single</a>
             </div>
           </li>
           <li class="nav-item">
@@ -188,7 +188,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Margaret Stone</h1>
+              <h1 class="title-single">CHỈNH SỬA THÔNG TIN</h1>
               <span class="color-text-a">Agent Immobiliari</span>
             </div>
           </div>

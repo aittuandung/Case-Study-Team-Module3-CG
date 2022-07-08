@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -137,25 +138,25 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.jsp">Estate<span class="color-b">Agency</span></a>
+      <a class="navbar-brand text-brand" href="index.jsp"><img src="https://staticfile.batdongsan.com.vn/images/logo/h-logo.svg" alt=""></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link " href="index.jsp">Home</a>
+            <a class="nav-link active" href="index.jsp">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="about.html">About</a>
+            <a class="nav-link " href="about.jsp">About</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" href="property-grid.html">Property</a>
+            <a class="nav-link " href="showapartment.jsp">Nhà Đăng Bán</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="blog-grid.html">Blog</a>
+            <a class="nav-link " href="blog-grid.jsp">Blog</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -164,11 +165,14 @@
               <a class="dropdown-item " href="property-single.html">Property Single</a>
               <a class="dropdown-item " href="blog-single.html">Blog Single</a>
               <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item " href="agent-single.html">Agent Single</a>
+              <a class="dropdown-item " href="showcustormmer.jsp">Agent Single</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="contact.html">Contact</a>
+            <a class="nav-link" href="/login">Đăng Nhập</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/registration.jsp">Đăng Kí</a>
           </li>
         </ul>
       </div>
@@ -178,7 +182,7 @@
       </button>
 
     </div>
-  </nav><!-- End Header/Navbar -->
+  </nav>  <!-- End Header/Navbar -->
 
   <main id="main">
 
@@ -188,18 +192,18 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Our Amazing Properties</h1>
-              <span class="color-text-a">Grid Properties</span>
+              <h1 class="title-single">Our Amazing Posts</h1>
+              <span class="color-text-a">Grid News</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="#">Home</a>
+                  <a href="index.jsp">Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  Properties Grid
+                  News Grid
                 </li>
               </ol>
             </nav>
@@ -208,299 +212,143 @@
       </div>
     </section><!-- End Intro Single-->
 
-    <!-- ======= Property Grid ======= -->
-    <section class="property-grid grid">
+    <!-- =======  Blog Grid ======= -->
+    <section class="news-grid grid">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
-            <div class="grid-option">
-              <form>
-                <select class="custom-select">
-                  <option selected>All</option>
-                  <option value="1">New to Old</option>
-                  <option value="2">For Rent</option>
-                  <option value="3">For Sale</option>
-                </select>
-              </form>
-            </div>
-          </div>
           <div class="col-md-4">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="assets/img/property-1.jpg" alt="" class="img-a img-fluid">
+            <div class="card-box-b card-shadow news-box">
+              <div class="img-box-b">
+                <img src="assets/img/post-1.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
+                <div class="card-header-b">
+                  <div class="card-category-b">
+                    <a href="#" class="category-b">Travel</a>
+                  </div>
+                  <div class="card-title-b">
+                    <h2 class="title-2">
+                      <a href="blog-single.html">Travel is comming
+                        <br> new</a>
                     </h2>
                   </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
+                  <div class="card-date">
+                    <span class="date-b">18 Sep. 2017</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="assets/img/property-3.jpg" alt="" class="img-a img-fluid">
+            <div class="card-box-b card-shadow news-box">
+              <div class="img-box-b">
+                <img src="assets/img/post-2.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
+                <div class="card-header-b">
+                  <div class="card-category-b">
+                    <a href="blog-single.html" class="category-b">Travel</a>
+                  </div>
+                  <div class="card-title-b">
+                    <h2 class="title-2">
+                      <a href="blog-single.html">Travel is comming
+                        <br> new</a>
                     </h2>
                   </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
+                  <div class="card-date">
+                    <span class="date-b">18 Sep. 2017</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="assets/img/property-6.jpg" alt="" class="img-a img-fluid">
+            <div class="card-box-b card-shadow news-box">
+              <div class="img-box-b">
+                <img src="assets/img/post-3.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
+                <div class="card-header-b">
+                  <div class="card-category-b">
+                    <a href="#" class="category-b">Travel</a>
+                  </div>
+                  <div class="card-title-b">
+                    <h2 class="title-2">
+                      <a href="blog-single.html">Travel is comming
+                        <br> new</a>
                     </h2>
                   </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
+                  <div class="card-date">
+                    <span class="date-b">18 Sep. 2017</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="assets/img/property-7.jpg" alt="" class="img-a img-fluid">
+            <div class="card-box-b card-shadow news-box">
+              <div class="img-box-b">
+                <img src="assets/img/post-4.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
+                <div class="card-header-b">
+                  <div class="card-category-b">
+                    <a href="#" class="category-b">Travel</a>
+                  </div>
+                  <div class="card-title-b">
+                    <h2 class="title-2">
+                      <a href="blog-single.html">Travel is comming
+                        <br> new</a>
                     </h2>
                   </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
+                  <div class="card-date">
+                    <span class="date-b">18 Sep. 2017</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="assets/img/property-8.jpg" alt="" class="img-a img-fluid">
+            <div class="card-box-b card-shadow news-box">
+              <div class="img-box-b">
+                <img src="assets/img/post-5.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
+                <div class="card-header-b">
+                  <div class="card-category-b">
+                    <a href="#" class="category-b">Travel</a>
+                  </div>
+                  <div class="card-title-b">
+                    <h2 class="title-2">
+                      <a href="blog-single.html">Travel is comming
+                        <br> new</a>
                     </h2>
                   </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
+                  <div class="card-date">
+                    <span class="date-b">18 Sep. 2017</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+            <div class="card-box-b card-shadow news-box">
+              <div class="img-box-b">
+                <img src="assets/img/post-6.jpg" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">204 Mount
-                        <br /> Olive Road Two</a>
+                <div class="card-header-b">
+                  <div class="card-category-b">
+                    <a href="#" class="category-b">Travel</a>
+                  </div>
+                  <div class="card-title-b">
+                    <h2 class="title-2">
+                      <a href="blog-single.html">Travel is comming
+                        <br> new</a>
                     </h2>
                   </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">rent | $ 12.000</span>
-                    </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Area</h4>
-                        <span>340m
-                          <sup>2</sup>
-                        </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Beds</h4>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
+                  <div class="card-date">
+                    <span class="date-b">18 Sep. 2017</span>
                   </div>
                 </div>
               </div>
@@ -535,7 +383,7 @@
           </div>
         </div>
       </div>
-    </section><!-- End Property Grid Single-->
+    </section><!-- End Blog Grid-->
 
   </main><!-- End #main -->
 
