@@ -19,6 +19,8 @@ public class CustomerDAO implements CRUD<Customer> {
 
     private static final String SELECT_ALL_CUSTOMER = "select * from customer where userName like concat('%',?,'%')";
 
+    private static final String UPDATE_USERS_CUSTOMER = "update customer set fullName = ?,birthDay= ?, idCard =?,homeTown= ?,phoneNumber= ?,email= ?,wallet= ? where 1 > 0;";
+
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
@@ -113,7 +115,20 @@ public class CustomerDAO implements CRUD<Customer> {
 
     @Override
     public boolean update(Customer customer) throws SQLException {
-        return false;
+        try (Connection connection = connect_mySQL.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USERS_CUSTOMER);
+            preparedStatement.setString(1, customer.getFullName());
+            preparedStatement.setString(2, customer.getBirthDay());
+            preparedStatement.setString(3, customer.getIdCard());
+            preparedStatement.setString(4, customer.getHomeTown());
+            preparedStatement.setString(5, customer.getPhoneNumber());
+            preparedStatement.setString(6, customer.getEmail());
+            preparedStatement.setDouble(7, customer.getWallet());
+            return preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return false;
+        }
     }
 
     public Customer findByUserName(String UserName){
