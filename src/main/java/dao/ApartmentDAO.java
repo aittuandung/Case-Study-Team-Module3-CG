@@ -29,7 +29,7 @@ public class ApartmentDAO implements CRUD<Apartment> {
 
     private static final String DELETE_APARTMENT_SQL = "delete from CASE_STUDY_MD3.apartment where idCH = ?;";
 
-    private static final String UPDATE_USERS_APARTMENT = "update CASE_STUDY_MD3.apartment set address = ?,price= ?, area =?,picture= ?,status= ?,description= ?,datePost= ?,classify= ? where id > 0;";
+    private static final String UPDATE_APARTMENT_SQL = "update CASE_STUDY_MD3.apartment set address = ?,price= ?, area =?,picture= ?,status= ?,description= ?,datePost= ?,classify= ? where id > 0;";
 
     private static final String SELECT_APARTMENT_BY_PRICE = "select * from CASE_STUDY_MD3.apartment where price=?";
 
@@ -143,7 +143,7 @@ public class ApartmentDAO implements CRUD<Apartment> {
     @Override
     public boolean update(Apartment apartment) throws SQLException {
         try (Connection connection = connect_mySQL.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USERS_APARTMENT);
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_APARTMENT_SQL);
             preparedStatement.setString(1, apartment.getAddress());
             preparedStatement.setDouble(2, apartment.getPrice());
             preparedStatement.setDouble(3, apartment.getArea());
