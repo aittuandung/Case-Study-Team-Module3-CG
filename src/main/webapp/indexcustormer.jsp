@@ -173,7 +173,7 @@
                         Xin Chào ${username}
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item " href="#">Đăng Xuất</a>
+                        <a class="dropdown-item " href="/login?action=logout">Đăng Xuất</a>
                         <a class="dropdown-item " href="#">Chỉnh sửa thông tin</a>
                     </div>
                 </li>

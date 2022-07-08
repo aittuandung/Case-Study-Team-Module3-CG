@@ -1,6 +1,8 @@
 package controller;
 
+import dao.ApartmentDAO;
 import dao.LoginAndRegistrationDao;
+import model.Apartment;
 import model.Customer;
 
 import javax.servlet.RequestDispatcher;
@@ -16,19 +18,24 @@ import java.util.List;
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     List<Customer> customers=new ArrayList<>();
+    List<ApartmentDAO> apartmentDAOS=new ArrayList<>();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action=req.getParameter("action");
+        List<Apartment> apartments=new ArrayList<>();
+
         RequestDispatcher dispatcher = null;
         if (action==null){
             action="";
         }
         switch (action){
-            case "login":
-//                login(req,resp,dispatcher);
-//                break;
+            case "logout":
+                Login.account = null;
+                resp.sendRedirect("/index.jsp");
+                break;
             default:
-                dispatcher=req.getRequestDispatcher("login.jsp");
+                req.setAttribute("apet",apartments);
+                dispatcher=req.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(req,resp);
         }
     }
@@ -48,7 +55,7 @@ public class LoginServlet extends HttpServlet {
                 if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     Login.account=userName;
                     req.setAttribute("username",userName);
-                    dispatcher=req.getRequestDispatcher("/index1.jsp");
+                    dispatcher=req.getRequestDispatcher("/indexcustormer.jsp");
                     dispatcher.forward(req,resp);
                 }else if (userName.equals("admin")&& passWord.equals("admin")){
                     dispatcher=req.getRequestDispatcher("admin.jsp");
