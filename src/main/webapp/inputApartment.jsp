@@ -39,6 +39,14 @@
             <input type="text" class="form-control">
         </div>
         <div class="form-group">
+            <label>Giá bán</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Diện tích căn hộ</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
             <label>Ảnh</label>
             <input type="text" class="form-control">
         </div>
