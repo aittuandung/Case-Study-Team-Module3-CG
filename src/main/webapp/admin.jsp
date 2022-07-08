@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -147,11 +148,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="about.html">About</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link " href="property-grid.html">Property</a>
+                    <a class="nav-link " href="property-grid.html">Bất động sản</a>
                 </li>
 
                 <li class="nav-item">
@@ -159,7 +156,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="contact.html">Contact</a>
+                    <a class="nav-link " href="contact.html">ĐĂNG XUẤT</a>
                 </li>
             </ul>
         </div>
@@ -179,22 +176,13 @@
             <div class="row">
                 <div class="col-md-12 col-lg-8">
                     <div class="title-single-box">
-                        <h1 class="title-single">Website Management</h1></span>
+                        <h1 class="title-single">Quản lý trang web</h1></span>
+                        <br>
+                       <button class="btn btn-primary profile-button" type="button">Nạp tiền cho khách</button></div>
+
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-4">
-                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
 
-                                <a href="index.jsp">Home</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="#">Download money for customers</a>
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
             </div>
         </div>
     </section><!-- End Intro Single -->
@@ -214,7 +202,7 @@
                             <div class="agent-info-box">
                                 <div class="agent-title">
                                     <div class="title-box-d">
-                                        <h3 class="title-d">CONTACT
+                                        <h3 class="title-d">Liên hệ
                                         </h3>
                                     </div>
                                 </div>
