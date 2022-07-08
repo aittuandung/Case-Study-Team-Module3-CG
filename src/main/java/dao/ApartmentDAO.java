@@ -18,22 +18,25 @@ public class ApartmentDAO implements CRUD<Apartment> {
     CustomerDAO customerDAO = new CustomerDAO();
 
     SectorDAO sectorDAO = new SectorDAO();
+//    classify like concat('%',?,'%')
 
 
-    private static final String SEARCH_APARTMENT_SQL = "select * from case_study_md3.apartment as a join case_study_md3.sector as s on s.idKV = a.idKV where classify = like concat('%',?,'%') and price = like concat('%',?,'%') and area = like concat('%',?,'%') and province = like concat('%',?,'%') and district= like concat ";
-    private static final String INSERT_APARTMENT_SQL = "INSERT INTO apartment (idCH, address, price, area, picture, status, description, datePost, classify, idKV) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String INSERT_APARTMENT_SQL = "INSERT INTO CASE_STUDY_MD3.apartment (idCH, address, price, area, picture, status, description, datePost, classify, idKV) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-    private static final String SELECT_APARTMENT_BY_ID = "select * from apartment where idCH =?";
+    private static final String SELECT_APARTMENT_BY_ID = "select * from CASE_STUDY_MD3.apartment where idCH =?";
 
-    private static final String SELECT_ALL_APARTMENT = "select * from case_study_md3.apartment where classify like concat('%',?,'%')";
+    private static final String SELECT_ALL_APARTMENT = "select * from CASE_STUDY_MD3.apartment where 1 > 0";
 
-    private static final String DELETE_APARTMENT_SQL = "delete from apartment where idCH = ?;";
+    private static final String DELETE_APARTMENT_SQL = "delete from CASE_STUDY_MD3.apartment where idCH = ?;";
 
-    private static final String UPDATE_USERS_APARTMENT = "update apartment set address = ?,price= ?, area =?,picture= ?,status= ?,description= ?,datePost= ?,classify= ? where id > 0;";
+    private static final String UPDATE_USERS_APARTMENT = "update CASE_STUDY_MD3.apartment set address = ?,price= ?, area =?,picture= ?,status= ?,description= ?,datePost= ?,classify= ? where id > 0;";
 
-    private static final String SELECT_APARTMENT_BY_PRICE = "select * from apartment where price=?";
+    private static final String SELECT_APARTMENT_BY_PRICE = "select * from CASE_STUDY_MD3.apartment where price=?";
 
-    private static final String SELECT_APARTMENT_BY_SECTOR = "select * from sector where province= ?";
+    private static final String SELECT_APARTMENT_BY_SECTOR = "select * from CASE_STUDY_MD3.apartment join CASE_STUDY_MD3.sector on apartment.idKV = sector.idKV where province= ?";
+
+    private static final String SEARCH_APARTMENT_SQL = "select * from CASE_STUDY_MD3.apartment as a join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV where classify like concat('%',?,'%') and price like concat('%',?,'%') and area like concat('%',?,'%') and province like concat('%',?,'%') and district like concat ('%',?,'%')";
+
 
     Connection connection = connect_mySQL.getConnection();
     private void printSQLException(SQLException ex) {
@@ -100,10 +103,9 @@ public class ApartmentDAO implements CRUD<Apartment> {
     }
 
     @Override
-    public List selectAll(String classify) {
+    public List selectAll(String string) {
         List<Apartment> apartments = new ArrayList<>();
         try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_APARTMENT)) {
-            preparedStatement.setString(9, classify);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -115,11 +117,11 @@ public class ApartmentDAO implements CRUD<Apartment> {
                 String status = resultSet.getString("status");
                 String description = resultSet.getString("description");
                 Date datePost = resultSet.getDate("datePost");
-                String classifyApartment = resultSet.getString("classify");
+                String classify = resultSet.getString("classify");
                 Customer customer = customerDAO.select(0, resultSet.getString("userName"));
                 Sector sector = sectorDAO.select(resultSet.getInt("idKV"), "");
 
-                apartments.add(new Apartment(idKV, address, price, area, picture, status, description, datePost, classifyApartment, customer, sector));
+                apartments.add(new Apartment(idKV, address, price, area, picture, status, description, datePost, classify, customer, sector));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -157,10 +159,10 @@ public class ApartmentDAO implements CRUD<Apartment> {
         }
     }
 
-    public List select_apartmentByPrice(Double price){
+    public List selectApartmentByPrice(Double price){
         List<Apartment> apartments = new ArrayList<>();
         try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_APARTMENT_BY_PRICE)) {
-            preparedStatement.setDouble(3, price);
+            preparedStatement.setDouble(1, price);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int idKV = resultSet.getInt("idCH");
@@ -183,14 +185,14 @@ public class ApartmentDAO implements CRUD<Apartment> {
         return apartments;
     }
 
-    public List select_apartmentByProvince(String province ){
+    public List selectApartmentBySectorProvince(String province ){
         List<Apartment> apartments = new ArrayList<>();
         try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_APARTMENT_BY_SECTOR)) {
-            preparedStatement.setString(11, province);
+            preparedStatement.setString(1, province);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                int idKV = resultSet.getInt("idCH");
+                int idCH = resultSet.getInt("idCH");
                 String address = resultSet.getString("address");
                 double price1 = resultSet.getDouble("price");
                 double area = resultSet.getDouble("area");
@@ -202,14 +204,14 @@ public class ApartmentDAO implements CRUD<Apartment> {
                 Customer customer = customerDAO.select(0, resultSet.getString("userName"));
                 Sector sector = sectorDAO.select(resultSet.getInt("idKV"), "");
 
-                apartments.add(new Apartment(idKV, address, price1, area, picture, status, description, datePost, classifyApartment, customer, sector));
+                apartments.add(new Apartment(idCH, address, price1, area, picture, status, description, datePost, classifyApartment, customer, sector));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return apartments;
     }
-    public void seach(String classify,String price,String area, String province, String district){
+    public void search(String classify,String price,String area, String province, String district){
         List<String> listseach= new ArrayList<>();
         listseach.add(classify);
         listseach.add(price);
