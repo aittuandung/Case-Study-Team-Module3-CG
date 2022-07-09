@@ -25,7 +25,7 @@ public class ApartmentDAO implements CRUD<Apartment> {
 
     private static final String SELECT_APARTMENT_BY_ID = "select * from CASE_STUDY_MD3.apartment where idCH =?";
 
-    private static final String SELECT_ALL_APARTMENT = "select * from CASE_STUDY_MD3.apartment where 1 > 0";
+    private static final String SELECT_ALL_APARTMENT = "select * from CASE_STUDY_MD3.apartment";
 
     private static final String DELETE_APARTMENT_SQL = "delete from CASE_STUDY_MD3.apartment where idCH = ?;";
 
@@ -103,7 +103,7 @@ public class ApartmentDAO implements CRUD<Apartment> {
     }
 
     @Override
-    public List selectAll(String string) {
+    public List<Apartment> selectAll(String string) {
         List<Apartment> apartments = new ArrayList<>();
         try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_APARTMENT)) {
             ResultSet resultSet = preparedStatement.executeQuery();

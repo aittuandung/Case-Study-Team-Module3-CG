@@ -8,7 +8,7 @@ public class Connect_MySQL {
 
     private static String jdbcURL = "jdbc:mysql://127.0.0.1:3306/?user=root";
     private static String jdbcUsername = "root";
-    private static String jdbcPassword = "Duong123";
+    private static String jdbcPassword = "Duc163359153";
     public static Connection getConnection() {
 
         Connection connection = null;

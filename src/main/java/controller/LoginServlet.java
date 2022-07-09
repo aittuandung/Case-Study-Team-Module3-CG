@@ -1,6 +1,8 @@
 package controller;
 
+import dao.ApartmentDAO;
 import dao.LoginAndRegistrationDao;
+import model.Apartment;
 import model.Customer;
 
 import javax.servlet.RequestDispatcher;
@@ -16,6 +18,7 @@ import java.util.List;
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     List<Customer> customers=new ArrayList<>();
+    ApartmentDAO apartmentDAO=new ApartmentDAO();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action=req.getParameter("action");
@@ -28,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 //                login(req,resp,dispatcher);
 //                break;
             default:
-                dispatcher=req.getRequestDispatcher("login.jsp");
+                dispatcher=req.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(req,resp);
         }
     }
@@ -36,7 +39,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = null;
-        LoginAndRegistrationDao loginAndRegistrationDao=new LoginAndRegistrationDao();
+        List<Apartment> apartments=new ArrayList<>();
+        apartments= apartmentDAO.selectAll("e");
+        LoginAndRegistrationDao loginAndRegistrationDao =new LoginAndRegistrationDao();
         String action=req.getParameter("action");
         if (action==null){
             action="";
@@ -48,10 +53,11 @@ public class LoginServlet extends HttpServlet {
                 if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     Login.account=userName;
                     req.setAttribute("username",userName);
-                    dispatcher=req.getRequestDispatcher("/index1.jsp");
+                    req.setAttribute("apartments",apartments);
+                    dispatcher=req.getRequestDispatcher("/showapartment.jsp");
                     dispatcher.forward(req,resp);
                 }else if (userName.equals("admin")&& passWord.equals("admin")){
-                    dispatcher=req.getRequestDispatcher("admin.jsp");
+                    dispatcher=req.getRequestDispatcher("/admin.jsp");
                     dispatcher.forward(req,resp);
                 }else if (!loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     resp.sendRedirect("/login.jsp");
