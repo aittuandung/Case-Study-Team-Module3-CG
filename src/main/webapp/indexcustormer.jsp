@@ -152,7 +152,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="showapartment.jsp">Nhà Đăng Bán</a>
+                    <a class="nav-link " href="/showapartment?action=shownha">Nhà Đăng Bán</a>
                 </li>
 
                 <li class="nav-item">
@@ -162,7 +162,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item " href="property-single.html">Property Single</a>
+                        <a class="dropdown-item " href="showchitiet.jsp">Property Single</a>
                         <a class="dropdown-item " href="blog-single.html">Blog Single</a>
                         <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
                         <a class="dropdown-item " href="showcustormmer.jsp">Agent Single</a>
@@ -399,7 +399,7 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html">206 Mount
+                                            <a href="showchitiet.jsp">206 Mount
                                                 <br /> Olive Road Two</a>
                                         </h2>
                                     </div>
@@ -447,7 +447,7 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html">157 West
+                                            <a href="showchitiet.jsp">157 West
                                                 <br /> Central Park</a>
                                         </h2>
                                     </div>
@@ -455,7 +455,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">rent | $ 12.000</span>
                                         </div>
-                                        <a href="property-single.html" class="link-a">Click here to view
+                                        <a href="showchitiet.jsp" class="link-a">Click here to view
                                             <span class="bi bi-chevron-right"></span>
                                         </a>
                                     </div>
@@ -495,7 +495,7 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html">245 Azabu
+                                            <a href="showchitiet.jsp">245 Azabu
                                                 <br /> Nishi Park let</a>
                                         </h2>
                                     </div>
@@ -503,7 +503,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">rent | $ 12.000</span>
                                         </div>
-                                        <a href="property-single.html" class="link-a">Click here to view
+                                        <a href="showchitiet.jsp" class="link-a">Click here to view
                                             <span class="bi bi-chevron-right"></span>
                                         </a>
                                     </div>
@@ -543,7 +543,7 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html">204 Montal
+                                            <a href="showchitiet.jsp">204 Montal
                                                 <br /> South Bela Two</a>
                                         </h2>
                                     </div>
@@ -551,7 +551,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">rent | $ 12.000</span>
                                         </div>
-                                        <a href="property-single.html" class="link-a">Click here to view
+                                        <a href="showchitiet.jsp" class="link-a">Click here to view
                                             <span class="bi bi-chevron-right"></span>
                                         </a>
                                     </div>

@@ -23,7 +23,7 @@ public class ApartmentDAO implements CRUD<Apartment> {
 
     private static final String INSERT_APARTMENT_SQL = "INSERT INTO CASE_STUDY_MD3.apartment (idCH, address, price, area, picture, status, description, datePost, classify, idKV) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-    private static final String SELECT_APARTMENT_BY_ID = "select * from CASE_STUDY_MD3.apartment where idCH =?";
+    private static final String SELECT_APARTMENT_BY_ID = "select * from CASE_STUDY_MD3.customer as ctm join CASE_STUDY_MD3.apartment as a on ctm.userName=a.userName join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV where idCH =?";
 
     private static final String SELECT_ALL_APARTMENT = "select * from CASE_STUDY_MD3.apartment where 1 > 0";
 
@@ -78,32 +78,42 @@ public class ApartmentDAO implements CRUD<Apartment> {
 
     @Override
     public Apartment select(int idCH, String userName) {
-        Apartment apartment = null;
         try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_APARTMENT_BY_ID);) {
             preparedStatement.setInt(1, idCH);
-            ResultSet rs = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+                String provinces= resultSet.getString(22);
+                String districts=resultSet.getString(23);
+                String subDistrict=resultSet.getString(24);
+                int idKV=resultSet.getInt(21);
+                int idCH1=resultSet.getInt(10);
+                String address=resultSet.getString(11);
+                double prices=resultSet.getDouble(12);
+                double areas=resultSet.getDouble(13);
+                String img=resultSet.getString(14);
+                String status=resultSet.getString(15);
+                String description=resultSet.getString(16);
+                Date datepost=resultSet.getDate(17);
+                String classifys=resultSet.getString(18);
+                String user=resultSet.getString(1);
+                String passWord=resultSet.getString(2);
+                String fullName=resultSet.getString(3);
+                String birthday=resultSet.getString(4);
+                String idCard=resultSet.getString(5);
+                String homeTown=resultSet.getString(6);
+                String phoneNumber=resultSet.getString(7);
+                String email=resultSet.getString(8);
+                double wallet=resultSet.getDouble(9);
+            return new Apartment(idCH1,address,prices,areas,img,status,description,datepost,classifys,new Customer(user,passWord,fullName,birthday,idCard,homeTown,phoneNumber,email,wallet),new Sector(idKV,provinces,districts,subDistrict));
 
-            while (rs.next()) {
-                String address = rs.getString("name");
-                double price = rs.getDouble("email");
-                double area = rs.getDouble("email");
-                String picture = rs.getString("name");
-                String status = rs.getString("name");
-                String description = rs.getString("name");
-                Date datePost = rs.getDate("'datePost");
-                String classify = rs.getString("name");
-                Customer customer = customerDAO.select(0, rs.getString("userName"));
-                Sector sector = sectorDAO.select(rs.getInt("idKV"), "");
-                apartment = new Apartment(idCH, address, price, area, picture, status, description, datePost, classify, customer, sector);
-            }
         } catch (SQLException e) {
             printSQLException(e);
         }
-        return apartment;
+        return null;
     }
 
     @Override
-    public List selectAll(String string) {
+    public List<Apartment> selectAll(String string) {
         List<Apartment> apartments = new ArrayList<>();
         try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_APARTMENT)) {
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -232,34 +242,35 @@ public class ApartmentDAO implements CRUD<Apartment> {
             preparedStatement.setString(5,district);
             ResultSet resultSet=preparedStatement.executeQuery();
             while (resultSet.next()){
-                String provinces= resultSet.getString("province");
-                String districts=resultSet.getString("district");
-                String subDistrict=resultSet.getString("subDistrict");
-                int idKV=resultSet.getInt("idKV");
-                int idCH=resultSet.getInt("idCH");
-                String address=resultSet.getString("address");
-                double prices=resultSet.getDouble("price");
-                double areas=resultSet.getDouble("area");
-                String img=resultSet.getString("picture");
-                String status=resultSet.getString("status");
-                String description=resultSet.getString("description");
-                Date datepost=resultSet.getDate("datePost");
-                String classifys=resultSet.getString("classifys");
-                String userName=resultSet.getString("userName");
-                String passWord=resultSet.getString("passWord");
-                String fullName=resultSet.getString("fullName");
-                String birthday=resultSet.getString("birthDay");
-                String idCard=resultSet.getString("idCard");
-                String homeTown=resultSet.getString("homeTown");
-                String phoneNumber=resultSet.getString("phoneNumber");
-                String email=resultSet.getString("email");
-                double wallet=resultSet.getDouble("wallet");
-                apartments.add(new Apartment(idCH,address,prices,areas,img,status,description,datepost,classifys,new Customer(userName,passWord,fullName,birthday,idCard,homeTown,phoneNumber,email,wallet),new Sector(idKV,provinces,districts,subDistrict)));
+                String provinces= resultSet.getString(22);
+                String districts=resultSet.getString(23);
+                String subDistrict=resultSet.getString(24);
+                int idKV=resultSet.getInt(21);
+                int idCH1=resultSet.getInt(10);
+                String address=resultSet.getString(11);
+                double prices=resultSet.getDouble(12);
+                double areas=resultSet.getDouble(13);
+                String img=resultSet.getString(14);
+                String status=resultSet.getString(15);
+                String description=resultSet.getString(16);
+                Date datepost=resultSet.getDate(17);
+                String classifys=resultSet.getString(18);
+                String user=resultSet.getString(1);
+                String passWord=resultSet.getString(2);
+                String fullName=resultSet.getString(3);
+                String birthday=resultSet.getString(4);
+                String idCard=resultSet.getString(5);
+                String homeTown=resultSet.getString(6);
+                String phoneNumber=resultSet.getString(7);
+                String email=resultSet.getString(8);
+                double wallet=resultSet.getDouble(9);
+                apartments.add(new Apartment(idCH1,address,prices,areas,img,status,description,datepost,classifys,new Customer(user,passWord,fullName,birthday,idCard,homeTown,phoneNumber,email,wallet),new Sector(idKV,provinces,districts,subDistrict)));
             }
         } catch (
                 SQLException e) {
             throw new RuntimeException(e);
-        }return apartments;
+        }
+        return apartments;
     }
 
 }

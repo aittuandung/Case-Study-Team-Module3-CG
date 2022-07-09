@@ -19,6 +19,8 @@ import java.util.List;
 public class LoginServlet extends HttpServlet {
     List<Customer> customers=new ArrayList<>();
     List<ApartmentDAO> apartmentDAOS=new ArrayList<>();
+    List<Apartment>apartments= new ArrayList<>();
+    ApartmentDAO apartmentDAO = new ApartmentDAO();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action=req.getParameter("action");
@@ -34,7 +36,7 @@ public class LoginServlet extends HttpServlet {
                 resp.sendRedirect("/index.jsp");
                 break;
             default:
-                req.setAttribute("apet",apartments);
+//                req.setAttribute("apartments",apartments);
                 dispatcher=req.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(req,resp);
         }
@@ -54,7 +56,9 @@ public class LoginServlet extends HttpServlet {
                 String passWord=req.getParameter("password");
                 if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     Login.account=userName;
+                    apartments= apartmentDAO.selectAll("a");
                     req.setAttribute("username",userName);
+                    req.setAttribute("apartments",apartments);
                     dispatcher=req.getRequestDispatcher("/indexcustormer.jsp");
                     dispatcher.forward(req,resp);
                 }else if (userName.equals("admin")&& passWord.equals("admin")){

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,7 +162,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item active" href="property-single.html">Property Single</a>
+              <a class="dropdown-item active" href="showchitiet.jsp">Property Single</a>
               <a class="dropdown-item " href="blog-single.html">Blog Single</a>
               <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
               <a class="dropdown-item " href="showcustormmer.jsp">Agent Single</a>
@@ -188,8 +189,8 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">304 Blaster Up</h1>
-              <span class="color-text-a">Chicago, IL 606543</span>
+              <h1 class="title-single">${apartment.address}</h1>
+              <span class="color-text-a">${apartment.sector.province},${apartment.sector.district}</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -219,10 +220,7 @@
             <div id="property-single-carousel" class="swiper">
               <div class="swiper-wrapper">
                 <div class="carousel-item-b swiper-slide">
-                  <img src="assets/img/slide-1.jpg" alt="">
-                </div>
-                <div class="carousel-item-b swiper-slide">
-                  <img src="assets/img/slide-2.jpg" alt="">
+                  <img src="${apartment.picture}" alt="">
                 </div>
               </div>
             </div>
@@ -238,10 +236,10 @@
                 <div class="property-price d-flex justify-content-center foo">
                   <div class="card-header-c d-flex">
                     <div class="card-box-ico">
-                      <span class="bi bi-cash">$</span>
+                      <span class="bi bi-cash"></span>
                     </div>
                     <div class="card-title-c align-self-center">
-                      <h5 class="title-c">15000</h5>
+                      <h5 class="title-c">${apartment.price} tỷ</h5>
                     </div>
                   </div>
                 </div>
@@ -249,15 +247,15 @@
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="title-box-d section-t4">
-                        <h3 class="title-d">Quick Summary</h3>
+                        <h3 class="title-d">Thông Tin Chi Tiết</h3>
                       </div>
                     </div>
                   </div>
                   <div class="summary-list">
                     <ul class="list">
                       <li class="d-flex justify-content-between">
-                        <strong>Property ID:</strong>
-                        <span>1134</span>
+                        <strong>ID căn hộ</strong>
+                        <span>${apartment.idCH}</span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Location:</strong>
