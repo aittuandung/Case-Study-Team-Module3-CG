@@ -21,7 +21,7 @@
 <div class="container">
     <h2>Tạo bài đăng bán bất động sản</h2>
     <p>Nhập thông tin chi tiết các trường</p>
-    <form>
+    <form action="/showapartment?action=createch&id=${user}" method="post">
         <div class="form-group">
             <label>Thành Phố:</label>
             <input type="text" class="form-control" >
