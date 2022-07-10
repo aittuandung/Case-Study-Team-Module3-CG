@@ -22,7 +22,6 @@ public class CustomerServlet extends HttpServlet {
         if (action==null){
             action="";
         }
-        System.out.println("vao get");
         switch (action){
             case "login":
 //                login(req,resp,dispatcher);

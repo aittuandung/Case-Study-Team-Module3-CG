@@ -9,7 +9,7 @@ import connection.Connect_MySQL;
 import model.Customer;
 
 public class LoginAndRegistrationDao {
-    String addAccount="insert into case_study_md3.customer (userName,passWord,fullname,birthday,idCart,homeTown,phoneNumber,email) value (?,?,?,?,?,?,?,?)";
+    String addAccount="insert into case_study_md3.customer (userName,passWord,fullname,birthday,idCart,homeTown,phoneNumber,email,wallet) value (?,?,?,?,?,?,?,?,?)";
     String loginAccount= "select userName,passWord from case_study_md3.Customer where userName=? and passWord=? ";
 
     Connect_MySQL connect_mySQL = new Connect_MySQL();
@@ -25,6 +25,7 @@ public class LoginAndRegistrationDao {
             statement.setString(6,homeTown);
             statement.setString(7,phoneNumber);
             statement.setString(8,email);
+            statement.setString(9, String.valueOf(0));
 
             return statement.execute();
         } catch (SQLException e) {

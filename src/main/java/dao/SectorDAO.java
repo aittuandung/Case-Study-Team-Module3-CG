@@ -21,7 +21,7 @@ public class SectorDAO implements CRUD<Sector> {
     private static final String SELECT_ALL_SECTOR = "select * from sector where province like concat('%',?,'%')";
 
     private static final String UPDATE_SECTOR_SQL = "update sector set province = ?,district= ?, subDistrict =? where idKV > 0;";
-
+    private static final String SEACH_IDKV_SQL= "select idkv form CASE_STUDY_MD3.sector where province like concat('%',?,'%') ";
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
@@ -111,4 +111,23 @@ public class SectorDAO implements CRUD<Sector> {
             return false;
         }
     }
-}
+    public int findIDKV(String provine) {
+        try (Connection connection = connect_mySQL.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEACH_IDKV_SQL);
+            preparedStatement.setString(1, provine);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            int idKV = resultSet.getInt(1);
+            return idKV;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public void addSector(){
+        try (Connection connection = connect_mySQL.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SECTOR);) {
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }}
+    }

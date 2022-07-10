@@ -147,10 +147,6 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="about.jsp">About</a>
-          </li>
-
-          <li class="nav-item">
             <a class="nav-link " href="showapartment.jsp">Property</a>
           </li>
 
@@ -161,7 +157,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item " href="property-single.html">Property Single</a>
+              <a class="dropdown-item " href="showchitiet.jsp">Property Single</a>
               <a class="dropdown-item " href="blog-single.html">Blog Single</a>
               <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
               <a class="dropdown-item active" href="showcustormmer.jsp">Agent Single</a>

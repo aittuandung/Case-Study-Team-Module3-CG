@@ -1,6 +1,8 @@
 package controller;
 
+import dao.ApartmentDAO;
 import dao.LoginAndRegistrationDao;
+import model.Apartment;
 import model.Customer;
 
 import javax.servlet.RequestDispatcher;
@@ -16,19 +18,30 @@ import java.util.List;
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     List<Customer> customers=new ArrayList<>();
+    ApartmentDAO apartmentDAO=new ApartmentDAO();
+    List<ApartmentDAO> apartmentDAOS=new ArrayList<>();
+    List<Apartment>apartments= new ArrayList<>();
+    static int turnover=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action=req.getParameter("action");
+        List<Apartment> apartments=new ArrayList<>();
+
         RequestDispatcher dispatcher = null;
         if (action==null){
             action="";
         }
         switch (action){
-            case "login":
-//                login(req,resp,dispatcher);
-//                break;
+            case "logout":
+                Login.account = null;
+                resp.sendRedirect("/index.jsp");
+                break;
             default:
-                dispatcher=req.getRequestDispatcher("login.jsp");
+
+//                req.setAttribute("apartments",apartments);
+                apartments= apartmentDAO.selectAll("a");
+                req.setAttribute("apartments",apartments);
+                dispatcher=req.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(req,resp);
         }
     }
@@ -36,7 +49,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = null;
-        LoginAndRegistrationDao loginAndRegistrationDao=new LoginAndRegistrationDao();
+        List<Apartment> apartments=new ArrayList<>();
+        apartments= apartmentDAO.selectAll("e");
+        LoginAndRegistrationDao loginAndRegistrationDao =new LoginAndRegistrationDao();
         String action=req.getParameter("action");
         if (action==null){
             action="";
@@ -47,15 +62,17 @@ public class LoginServlet extends HttpServlet {
                 String passWord=req.getParameter("password");
                 if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     Login.account=userName;
+                    apartments= apartmentDAO.selectAll("a");
                     req.setAttribute("username",userName);
-                    dispatcher=req.getRequestDispatcher("/index1.jsp");
+                    req.setAttribute("apartments",apartments);
+                    dispatcher=req.getRequestDispatcher("/indexcustormer.jsp");
                     dispatcher.forward(req,resp);
                 }else if (userName.equals("admin")&& passWord.equals("admin")){
-//                    dispatcher=req.getRequestDispatcher("/admin.jsp");
-//                    dispatcher.forward(req,resp);
-                    resp.sendRedirect("/admin.jsp");
+                    req.setAttribute("turnover",turnover);
+                    dispatcher=req.getRequestDispatcher("/admin.jsp");
+                    dispatcher.forward(req,resp);
                 }else if (!loginAndRegistrationDao.getAllCustomer(userName,passWord)){
-                    resp.sendRedirect("/index.jsp");
+                    resp.sendRedirect("/login.jsp");
                 }
                 break;
             case "register":
@@ -70,6 +87,11 @@ public class LoginServlet extends HttpServlet {
 
                 loginAndRegistrationDao.addAccount(user,pass,fullName,birthDay,idCard,homeTown,phoneNumber,email);
                 resp.sendRedirect("/login.jsp");
+                break;
+            case "createch":
+                req.setAttribute("user",Login.account);
+                dispatcher=req.getRequestDispatcher("/inputApartment.jsp");
+                dispatcher.forward(req,resp);
                 break;
             default:
                 dispatcher=req.getRequestDispatcher("index.jsp");
