@@ -39,6 +39,8 @@ public class LoginServlet extends HttpServlet {
             default:
 
 //                req.setAttribute("apartments",apartments);
+                apartments= apartmentDAO.selectAll("a");
+                req.setAttribute("apartments",apartments);
                 dispatcher=req.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(req,resp);
         }
@@ -85,6 +87,11 @@ public class LoginServlet extends HttpServlet {
 
                 loginAndRegistrationDao.addAccount(user,pass,fullName,birthDay,idCard,homeTown,phoneNumber,email);
                 resp.sendRedirect("/login.jsp");
+                break;
+            case "createch":
+                req.setAttribute("user",Login.account);
+                dispatcher=req.getRequestDispatcher("/inputApartment.jsp");
+                dispatcher.forward(req,resp);
                 break;
             default:
                 dispatcher=req.getRequestDispatcher("index.jsp");

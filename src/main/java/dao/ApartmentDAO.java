@@ -76,6 +76,24 @@ public class ApartmentDAO implements CRUD<Apartment> {
             printSQLException(e);
         }
     }
+    public void addApartment(int idCH,String address,double price,double area,String picture,String status,String description,Date datePost,String classify,String username,int idkv){
+        try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_APARTMENT_SQL)) {
+            preparedStatement.setInt(1,idCH);
+            preparedStatement.setString(2,address);
+            preparedStatement.setDouble(3,price);
+            preparedStatement.setDouble(4,area);
+            preparedStatement.setString(5,picture);
+            preparedStatement.setString(6,status);
+            preparedStatement.setString(7,description);
+            preparedStatement.setDate(8,datePost);
+            preparedStatement.setString(9,classify);
+            preparedStatement.setString(10,username);
+            preparedStatement.setInt(11,idkv);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     public Apartment select(int idCH, String userName) {
@@ -120,19 +138,29 @@ public class ApartmentDAO implements CRUD<Apartment> {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                int idKV = resultSet.getInt("idCH");
-                String address = resultSet.getString("address");
-                double price = resultSet.getDouble("price");
-                double area = resultSet.getDouble("area");
-                String picture = resultSet.getString("picture");
-                String status = resultSet.getString("status");
-                String description = resultSet.getString("description");
-                Date datePost = resultSet.getDate("datePost");
-                String classify = resultSet.getString("classify");
-                Customer customer = customerDAO.select(0, resultSet.getString("userName"));
-                Sector sector = sectorDAO.select(resultSet.getInt("idKV"), "");
-
-                apartments.add(new Apartment(idKV, address, price, area, picture, status, description, datePost, classify, customer, sector));
+                String provinces= resultSet.getString(22);
+                String districts=resultSet.getString(23);
+                String subDistrict=resultSet.getString(24);
+                int idKV=resultSet.getInt(21);
+                int idCH1=resultSet.getInt(10);
+                String address=resultSet.getString(11);
+                double prices=resultSet.getDouble(12);
+                double areas=resultSet.getDouble(13);
+                String img=resultSet.getString(14);
+                String status=resultSet.getString(15);
+                String description=resultSet.getString(16);
+                Date datepost=resultSet.getDate(17);
+                String classifys=resultSet.getString(18);
+                String user=resultSet.getString(1);
+                String passWord=resultSet.getString(2);
+                String fullName=resultSet.getString(3);
+                String birthday=resultSet.getString(4);
+                String idCard=resultSet.getString(5);
+                String homeTown=resultSet.getString(6);
+                String phoneNumber=resultSet.getString(7);
+                String email=resultSet.getString(8);
+                double wallet=resultSet.getDouble(9);
+                apartments.add(new Apartment(idCH1,address,prices,areas,img,status,description,datepost,classifys,new Customer(user,passWord,fullName,birthday,idCard,homeTown,phoneNumber,email,wallet),new Sector(idKV,provinces,districts,subDistrict)));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

@@ -7,7 +7,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 import java.util.logging.LogRecord;
-@WebFilter("/EditProduct.jsp")
+@WebFilter("/indexcustormer.jsp")
 public class FilterLogin implements Filter {
     Connect_MySQL connect_mySQL=new Connect_MySQL();
 

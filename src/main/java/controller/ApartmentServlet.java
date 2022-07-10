@@ -1,6 +1,7 @@
 package controller;
 
 import dao.ApartmentDAO;
+import dao.SectorDAO;
 import model.Apartment;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +47,25 @@ public class ApartmentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String action=req.getParameter("action");
+        if (action==null){
+            action="";
+        }
+        switch (action){
+            case "create":
+                int userName= Integer.parseInt(req.getParameter("id"));
+                String province =req.getParameter("province");
+                String district =req.getParameter("district");
+                String subDistrict =req.getParameter("subDistrict");
+                String address =req.getParameter("address");
+                Double price = Double.valueOf(req.getParameter("price"));
+                Double area = Double.valueOf(req.getParameter("area"));
+                String picture = req.getParameter("picture");
+                String description=req.getParameter("description");
+                String status="Đang bán";
+                SectorDAO sectorDAO=new SectorDAO();
+                String classify;
+                apartmentDAO.addApartment(1,address,price,area,picture,status,description,,classify,userName,sectorDAO.findIDKV(province));
+        }
     }
 }
