@@ -51,8 +51,9 @@ public class LoginServlet extends HttpServlet {
                     dispatcher=req.getRequestDispatcher("/index1.jsp");
                     dispatcher.forward(req,resp);
                 }else if (userName.equals("admin")&& passWord.equals("admin")){
-                    dispatcher=req.getRequestDispatcher("admin.jsp");
-                    dispatcher.forward(req,resp);
+//                    dispatcher=req.getRequestDispatcher("/admin.jsp");
+//                    dispatcher.forward(req,resp);
+                    resp.sendRedirect("/admin.jsp");
                 }else if (!loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     resp.sendRedirect("/index.jsp");
                 }
