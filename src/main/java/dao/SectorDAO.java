@@ -93,6 +93,25 @@ public class SectorDAO implements CRUD<Sector> {
         }
         return sectors;
     }
+    public List<Sector> getAll() {
+        String sql = "SELECT * FROM CASE_STUDY_MD3.sector";
+        List<Sector> sectors = new ArrayList<>();
+        try (Connection connection = connect_mySQL.getConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                int idKV = resultSet.getInt(1);
+                String province = resultSet.getString(2);
+                String district = resultSet.getString(3);
+                String subDistrict = resultSet.getString(4);
+                sectors.add(new Sector(idKV, province, district, subDistrict));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return sectors;
+    }
 
     @Override
     public boolean delete(int id, String name) throws SQLException {

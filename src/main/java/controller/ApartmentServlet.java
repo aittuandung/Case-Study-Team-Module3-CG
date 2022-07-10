@@ -25,9 +25,6 @@ public class ApartmentServlet extends HttpServlet {
     ApartmentDAO apartmentDAO = new ApartmentDAO();
     SectorDAO sectorDAO =  new SectorDAO();
     CustomerDAO customerDAO = new CustomerDAO();
-    Customer customer = new Customer();
-    Sector sector = new Sector();
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,6 +36,11 @@ public class ApartmentServlet extends HttpServlet {
         apartments = apartmentDAO.selectAll("a");
 
         switch (action) {
+            case "create":
+//                req.setAttribute("customer", customerDAO.getAll());
+                req.setAttribute("sector", sectorDAO.getAll());
+                requestDispatcher = req.getRequestDispatcher("/inputApartment.jsp");
+                requestDispatcher.forward(req, resp);
             case "shownha":
                 req.setAttribute("apartments", apartments);
                 requestDispatcher = req.getRequestDispatcher("/showapartment.jsp");

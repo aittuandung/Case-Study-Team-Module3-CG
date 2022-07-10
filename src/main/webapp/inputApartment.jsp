@@ -68,27 +68,25 @@
                 <option value="nhadat">Nhà Đất</option>
                 <option value="khac">Các Loại Bất Động Sản Khác</option>
             </select>
-<%--        <label>Chọn khu vực</label>--%>
-<%--        <select name="sector" id="sector" class="form-group" style="--%>
-<%--    width: 100%;--%>
-
-<%--    height: 34px;--%>
-<%--    margin-bottom: 15px;">--%>
-<%--            <c:forEach var="c" items="${sector}">--%>
-<%--                <option value="${c.idKV}">${c.province}</option>--%>
+<%--        <div class="form-group">--%>
+<%--            <label>Tên chủ căn hộ</label>--%>
+<%--            <select name="customer" id="customer">--%>
+<%--            <c:forEach var="c" items="${customer}">--%>
+<%--                <option value="${c.userName}">${c.userName}</option>    --%>
 <%--            </c:forEach>--%>
-<%--        </select>--%>
-        <div class="form-group">
-            <label>Tên chủ căn hộ</label>
-            <input type="text" name="username" class="form-control">
-        </div>
+<%--            </select>--%>
+<%--        </div>--%>
         <div class="form-group">
             <label>Khu vực căn hộ</label>
-            <input type="text" name="sector" class="form-control">
+            <select name="sector" id="sector">
+                <c:forEach var="c" items="${sector}">
+                    <option value="${c.idKV}">${c.province}</option>
+                </c:forEach>
+            </select>
         </div>
 
-        <div style="display: flex ; justify-content: center "><button type="submit" style="padding: 20px ; background: #0a53be ; border-radius: 4px ; border: none ; color: #dae0e5" >
-            <a href="index.jsp">Tạo bài đăng</a></button></div>
+        <div style="display: flex ; justify-content: center "><input type="submit" value="create apartment" style="padding: 20px ; background: #0a53be ; border-radius: 4px ; border: none ; color: #dae0e5" >
+            <a href="index.jsp">Tạo bài đăng</a></div>
     </form>
 </div>
 </body>
