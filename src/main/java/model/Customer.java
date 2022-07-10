@@ -26,6 +26,10 @@ public class Customer {
         this.wallet = wallet;
     }
 
+    public Customer(String userName) {
+        this.userName = userName;
+    }
+
     public String getUserName() {
         return userName;
     }

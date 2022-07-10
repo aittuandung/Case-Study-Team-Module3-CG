@@ -5,6 +5,7 @@
   Time: 2:31 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,40 +22,42 @@
 <div class="container">
     <h2>Tạo bài đăng bán bất động sản</h2>
     <p>Nhập thông tin chi tiết các trường</p>
-    <form action="/showapartment?action=createch&id=${user}" method="post">
+<%--    <form action="/showapartment?action=createch&id=${user}" method="post">--%>
+    <form action="/showapartment?action=create" method="post">
         <div class="form-group">
-            <label>Thành Phố:</label>
-            <input type="text" class="form-control" >
+            <label>Mã Căn hộ:</label>
+            <input type="text" name="idCH" class="form-control" placeholder="* Mã số ngẫu nhiên (5 số) *">
         </div>
         <div class="form-group">
-            <label>Quận/Huyện:</label>
-            <input type="text" class="form-control" >
+            <label>Địa chỉ:</label>
+            <input type="text" name="address" class="form-control" >
         </div>
         <div class="form-group">
-            <label>Phường/Xã</label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Địa chỉ</label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Giá bán</label>
-            <input type="text" class="form-control">
+            <label>Giá bán:</label>
+            <input type="text" name="price" class="form-control" >
         </div>
         <div class="form-group">
             <label>Diện tích căn hộ</label>
-            <input type="text" class="form-control">
+            <input type="text" name="area" class="form-control">
         </div>
         <div class="form-group">
-            <label>Ảnh</label>
-            <input type="text" class="form-control">
+            <label>Ảnh căn hộ</label>
+            <input type="text" name="picture" class="form-control">
         </div>
         <div class="form-group">
-            <label>Mô tả căn hộ</label>
-            <input type="text" class="form-control">
+            <label>Trạng Thái</label>
+            <input type="text" name="status" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Hướng Nhà</label>
+            <input type="text" name="description" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Ngày hiển thị bài đăng</label>
+            <input type="date" name="datePost" class="form-control">
         </div>
             <label>Kiểu loại căn hộ</label>
+
             <select name="classify" id="classify" class="form-group" style="
     width: 100%;
 
@@ -65,6 +68,24 @@
                 <option value="nhadat">Nhà Đất</option>
                 <option value="khac">Các Loại Bất Động Sản Khác</option>
             </select>
+<%--        <label>Chọn khu vực</label>--%>
+<%--        <select name="sector" id="sector" class="form-group" style="--%>
+<%--    width: 100%;--%>
+
+<%--    height: 34px;--%>
+<%--    margin-bottom: 15px;">--%>
+<%--            <c:forEach var="c" items="${sector}">--%>
+<%--                <option value="${c.idKV}">${c.province}</option>--%>
+<%--            </c:forEach>--%>
+<%--        </select>--%>
+        <div class="form-group">
+            <label>Tên chủ căn hộ</label>
+            <input type="text" name="username" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Khu vực căn hộ</label>
+            <input type="text" name="sector" class="form-control">
+        </div>
 
         <div style="display: flex ; justify-content: center "><button type="submit" style="padding: 20px ; background: #0a53be ; border-radius: 4px ; border: none ; color: #dae0e5" >
             <a href="index.jsp">Tạo bài đăng</a></button></div>
