@@ -66,7 +66,8 @@
                 <option value="khac">Các Loại Bất Động Sản Khác</option>
             </select>
 
-        <div style="display: flex ; justify-content: center "><button type="submit" style="padding: 20px ; background: #0a53be ; border-radius: 4px ; border: none ; color: #dae0e5" >Tạo bài đăng</button></div>
+        <div style="display: flex ; justify-content: center "><button type="submit" style="padding: 20px ; background: #0a53be ; border-radius: 4px ; border: none ; color: #dae0e5" >
+            <a href="index.jsp">Tạo bài đăng</a></button></div>
     </form>
 </div>
 </body>

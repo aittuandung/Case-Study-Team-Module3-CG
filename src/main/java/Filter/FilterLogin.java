@@ -20,7 +20,7 @@ public class FilterLogin implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (Login.account==null){
-            RequestDispatcher requestDispatcher=request.getRequestDispatcher("/index1.jsp");
+            RequestDispatcher requestDispatcher=request.getRequestDispatcher("/indexcustormer.jsp");
             requestDispatcher.forward(request,response);
         }else{
             chain.doFilter(request,response);

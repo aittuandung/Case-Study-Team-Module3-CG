@@ -19,18 +19,26 @@ import java.util.List;
 public class LoginServlet extends HttpServlet {
     List<Customer> customers=new ArrayList<>();
     ApartmentDAO apartmentDAO=new ApartmentDAO();
+    List<ApartmentDAO> apartmentDAOS=new ArrayList<>();
+    List<Apartment>apartments= new ArrayList<>();
+    static int turnover=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action=req.getParameter("action");
+        List<Apartment> apartments=new ArrayList<>();
+
         RequestDispatcher dispatcher = null;
         if (action==null){
             action="";
         }
         switch (action){
-            case "login":
-//                login(req,resp,dispatcher);
-//                break;
+            case "logout":
+                Login.account = null;
+                resp.sendRedirect("/index.jsp");
+                break;
             default:
+
+//                req.setAttribute("apartments",apartments);
                 dispatcher=req.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(req,resp);
         }
@@ -52,11 +60,13 @@ public class LoginServlet extends HttpServlet {
                 String passWord=req.getParameter("password");
                 if (loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     Login.account=userName;
+                    apartments= apartmentDAO.selectAll("a");
                     req.setAttribute("username",userName);
                     req.setAttribute("apartments",apartments);
-                    dispatcher=req.getRequestDispatcher("/showapartment.jsp");
+                    dispatcher=req.getRequestDispatcher("/indexcustormer.jsp");
                     dispatcher.forward(req,resp);
                 }else if (userName.equals("admin")&& passWord.equals("admin")){
+                    req.setAttribute("turnover",turnover);
                     dispatcher=req.getRequestDispatcher("/admin.jsp");
                     dispatcher.forward(req,resp);
                 }else if (!loginAndRegistrationDao.getAllCustomer(userName,passWord)){
