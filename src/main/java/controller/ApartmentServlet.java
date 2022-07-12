@@ -23,7 +23,7 @@ import java.util.List;
 public class ApartmentServlet extends HttpServlet {
     List<Apartment> apartments = new ArrayList<>();
     ApartmentDAO apartmentDAO = new ApartmentDAO();
-    SectorDAO sectorDAO =  new SectorDAO();
+    SectorDAO sectorDAO = new SectorDAO();
     CustomerDAO customerDAO = new CustomerDAO();
 
     @Override
@@ -60,12 +60,13 @@ public class ApartmentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
+        RequestDispatcher requestDispatcher = null;
         if (action == null) {
             action = "";
         }
         switch (action) {
             case "create":
-                int idCH = Integer.parseInt(req.getParameter("idCH"));
+//                int idCH = Integer.parseInt(req.getParameter("idCH"));
                 String address = req.getParameter("address");
                 Double price = Double.parseDouble(req.getParameter("price"));
                 Double area = Double.parseDouble(req.getParameter("area"));
@@ -74,16 +75,20 @@ public class ApartmentServlet extends HttpServlet {
                 String description = req.getParameter("description");
                 Date datePost = Date.valueOf(req.getParameter("datePost"));
                 String classify = req.getParameter("classify");
-                String username = req.getParameter("username");
+                String username = req.getParameter("id");
                 int idKV = Integer.parseInt(req.getParameter("sector"));
 
-                Apartment apartment = new Apartment(idCH, address, price, area, picture, status, description, datePost, classify, customerDAO.findByName(username),sectorDAO.findById(idKV));
-                try {
-                    apartmentDAO.insert(apartment);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                resp.sendRedirect("/showapartment.jsp");
+//                Apartment apartment = new Apartment(idCH, address, price, area, picture, status, description, datePost, classify, customerDAO.findByName(username),sectorDAO.findById(idKV));
+//                try {
+//                    apartmentDAO.insert(apartment);
+//                } catch (SQLException e) {
+//                    throw new RuntimeException(e);
+//                }
+                apartmentDAO.addApartment(address, price, area, picture, status, description, datePost, classify, username, idKV);
+                apartments = apartmentDAO.selectAll("a");
+                req.setAttribute("apartments", apartments);
+                requestDispatcher = req.getRequestDispatcher("/showapartment.jsp");
+                requestDispatcher.forward(req, resp);
                 break;
         }
     }

@@ -2,6 +2,7 @@ package controller;
 
 import dao.ApartmentDAO;
 import dao.LoginAndRegistrationDao;
+import dao.SectorDAO;
 import model.Apartment;
 import model.Customer;
 
@@ -21,6 +22,8 @@ public class LoginServlet extends HttpServlet {
     ApartmentDAO apartmentDAO=new ApartmentDAO();
     List<ApartmentDAO> apartmentDAOS=new ArrayList<>();
     List<Apartment>apartments= new ArrayList<>();
+
+    SectorDAO sectorDAO = new SectorDAO();
     static int turnover=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,6 +39,12 @@ public class LoginServlet extends HttpServlet {
                 Login.account = null;
                 resp.sendRedirect("/index.jsp");
                 break;
+            case "createch":
+                String account=req.getParameter("id");
+                req.setAttribute("sector", sectorDAO.getAll() );
+                req.setAttribute("username",account);
+                dispatcher=req.getRequestDispatcher("/inputApartment.jsp");
+                dispatcher.forward(req,resp);
             default:
 
 //                req.setAttribute("apartments",apartments);

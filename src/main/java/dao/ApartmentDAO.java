@@ -21,11 +21,11 @@ public class ApartmentDAO implements CRUD<Apartment> {
 //    classify like concat('%',?,'%')
 
 
-    private static final String INSERT_APARTMENT_SQL = "INSERT INTO `CASE_STUDY_MD3`.`apartment` (`idCH`, `address`, `price`, `area`, `picture`, `status`, `description`, `datePost`, `classify`, `userName`, `idKV`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String INSERT_APARTMENT_SQL = "INSERT INTO `CASE_STUDY_MD3`.`apartment` ( `address`, `price`, `area`, `picture`, `status`, `description`, `datePost`, `classify`, `userName`, `idKV`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     private static final String SELECT_APARTMENT_BY_ID = "select * from CASE_STUDY_MD3.customer as ctm join CASE_STUDY_MD3.apartment as a on ctm.userName=a.userName join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV where idCH =?";
 
-    private static final String SELECT_ALL_APARTMENT = "select * from CASE_STUDY_MD3.apartment";
+    private static final String SELECT_ALL_APARTMENT = "select * from CASE_STUDY_MD3.customer as ctm join CASE_STUDY_MD3.apartment as a on ctm.userName=a.userName join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV ";
 
     private static final String DELETE_APARTMENT_SQL = "delete from CASE_STUDY_MD3.apartment where idCH = ?;";
 
@@ -91,19 +91,20 @@ public class ApartmentDAO implements CRUD<Apartment> {
 //        }
 //    }
 
-    public boolean addApartment(int idCH,String address,double price,double area,String picture,String  status,String  description,Date datePost,String classify, Customer customer,Sector sector) {
+    public boolean addApartment(String address,double price,double area,String picture,String  status,String  description,Date datePost,String classify,String username, int idKV) {
         try (Connection connection = connect_mySQL.getConnection(); PreparedStatement statement = connection.prepareStatement(INSERT_APARTMENT_SQL)) {
-            statement.setInt(1, idCH);
-            statement.setString(2, address);
-            statement.setDouble(3, price);
-            statement.setDouble(4, area);
-            statement.setString(5, picture);
-            statement.setString(6, status);
-            statement.setString(7, description);
-            statement.setDate(8,datePost);
-            statement.setString(9, classify);
-            statement.setString(10, customer.getUserName());
-            statement.setInt(11, sector.getIdKV());
+//            statement.setInt(1, idCH);
+            statement.setString(1, address);
+            statement.setDouble(2, price);
+            statement.setDouble(3, area);
+            statement.setString(4, picture);
+            statement.setString(5, status);
+            statement.setString(6, description);
+            statement.setDate(7,datePost);
+            statement.setString(8, classify);
+            statement.setString(9, username);
+//            statement.setString(10, customer.getUserName());
+            statement.setInt(10, idKV);
             return statement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);

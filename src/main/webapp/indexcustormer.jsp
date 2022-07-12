@@ -180,7 +180,7 @@
 <%--                </li>--%>
                 <li class="nav-item dropdown">
 
-                        <a href="/login?action=createch" methods="post" class="nav-link">Tạo bài đăng</a>
+                        <a href="/login?action=createch&id=${username}" methods="post" class="nav-link">Tạo bài đăng</a>
                 </li>
 
             </ul>

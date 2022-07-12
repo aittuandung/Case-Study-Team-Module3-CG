@@ -23,11 +23,7 @@
     <h2>Tạo bài đăng bán bất động sản</h2>
     <p>Nhập thông tin chi tiết các trường</p>
 <%--    <form action="/showapartment?action=createch&id=${user}" method="post">--%>
-    <form action="/showapartment?action=create" method="post">
-        <div class="form-group">
-            <label>Mã Căn hộ:</label>
-            <input type="text" name="idCH" class="form-control" placeholder="* Mã số ngẫu nhiên (5 số) *">
-        </div>
+    <form action="/showapartment?action=create&id=${username}" method="post">
         <div class="form-group">
             <label>Địa chỉ:</label>
             <input type="text" name="address" class="form-control" >
@@ -68,25 +64,18 @@
                 <option value="nhadat">Nhà Đất</option>
                 <option value="khac">Các Loại Bất Động Sản Khác</option>
             </select>
-<%--        <div class="form-group">--%>
-<%--            <label>Tên chủ căn hộ</label>--%>
-<%--            <select name="customer" id="customer">--%>
-<%--            <c:forEach var="c" items="${customer}">--%>
-<%--                <option value="${c.userName}">${c.userName}</option>    --%>
-<%--            </c:forEach>--%>
-<%--            </select>--%>
-<%--        </div>--%>
         <div class="form-group">
             <label>Khu vực căn hộ</label>
             <select name="sector" id="sector">
                 <c:forEach var="c" items="${sector}">
-                    <option value="${c.idKV}">${c.province}</option>
+                    <option value="${c.idKV}">${c.district}</option>
                 </c:forEach>
             </select>
         </div>
 
         <div style="display: flex ; justify-content: center "><input type="submit" value="create apartment" style="padding: 20px ; background: #0a53be ; border-radius: 4px ; border: none ; color: #dae0e5" >
-            <a href="index.jsp">Tạo bài đăng</a></div>
+<%--            <a href="index.jsp">Tạo bài đăng</a>--%>
+        </div>
     </form>
 </div>
 </body>
