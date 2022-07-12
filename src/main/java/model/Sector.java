@@ -16,6 +16,11 @@ public class Sector {
         this.subDistrict = subDistrict;
     }
 
+    public Sector(int idKV, String province) {
+        this.idKV=idKV;
+        this.province=province;
+    }
+
     public int getIdKV() {
         return idKV;
     }

@@ -131,28 +131,23 @@ public class CustomerDAO implements CRUD<Customer> {
         }
     }
 
-    public Customer findByUserName(String UserName){
-        String sql = "select * from customer";
-        Connection connection = Connect_MySQL.getConnection();
-        try {
+    public Customer findByName(String name){
+        String sql = "select * from CASE_STUDY_MD3.customer where userName = ?";
+        try (Connection connection = connect_mySQL.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(Integer.parseInt("1"),UserName);
+            preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            String userName = resultSet.getString(1);
-            String pass = resultSet.getString(2);
-            String fullName = resultSet.getString(3);
-            String birthDay = resultSet.getString(4);
-            String idCard = resultSet.getString(5);
-            String homeTown = resultSet.getString(6);
-            String phoneNumber = resultSet.getString(7);
-            String email = resultSet.getString(8);
-            Double wallet = resultSet.getDouble(9);
 
-            Customer customer = new Customer(userName,pass,fullName,birthDay,idCard,homeTown,phoneNumber,email,wallet);
+            resultSet.next();
+//            int userName = resultSet.getInt(1);
+            String userName = resultSet.getString(1);
+            Customer customer = new Customer(userName);
             return customer;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+        return null;
     }
 }

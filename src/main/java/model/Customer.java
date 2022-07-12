@@ -13,6 +13,9 @@ public class Customer {
     
     public Customer() {
     }
+    public Customer(String userName) {
+        this.userName = userName;
+    }
 
     public Customer(String userName, String passWord, String fullName, String birthDay, String idCard, String homeTown, String phoneNumber, String email, double wallet) {
         this.userName = userName;

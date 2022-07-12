@@ -130,4 +130,23 @@ public class SectorDAO implements CRUD<Sector> {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }}
+    public  Sector findById(int id ){
+        String sql = "select * from CASE_STUDY_MD3.sector where idKV = ?";
+        try (Connection connection = connect_mySQL.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            int idKV = resultSet.getInt(1);
+            String province = resultSet.getString(2);
+            Sector sector = new Sector(idKV, province);
+            return sector;
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
     }

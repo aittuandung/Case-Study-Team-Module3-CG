@@ -53,13 +53,18 @@
             <span></span>
             <span></span>
         </button>
-        <a class="navbar-brand text-brand" href="index.jsp"><img src="https://staticfile.batdongsan.com.vn/images/logo/h-logo.svg" alt=""></a>
+        <a class="navbar-brand text-brand" href="#"><img src="https://staticfile.batdongsan.com.vn/images/logo/h-logo.svg" alt=""></a>
 
         <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link">Doanh thu hiện tại là: ${turnover}</a>
                     <a class="nav-link " href="/login?action=logout">ĐĂNG XUẤT</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="/admin?action=lichsu">Lịch sử nạp tiền</a>
                 </li>
             </ul>
         </div>
@@ -81,7 +86,7 @@
                     <div class="title-single-box">
                         <h1 class="title-single">Quản lý trang web</h1></span>
                         <br>
-                       <button class="btn btn-primary profile-button" type="button"><a href="/admin?action=naptien&money=${turnover}">Nạp tiền cho khách</a></button>
+                       <button class="btn btn-primary profile-button" type="button"><a href="/admin?action=naptien">Nạp tiền cho khách</a></button>
 
                     </div>
                 </div>

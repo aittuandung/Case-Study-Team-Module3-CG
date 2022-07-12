@@ -1,6 +1,8 @@
 package controller;
 
 import dao.ApartmentDAO;
+import dao.WalletDao;
+import model.Wallet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/admin")
 public class AdminServlet extends HttpServlet {
@@ -21,15 +25,32 @@ public class AdminServlet extends HttpServlet {
         if (action==null){
             action="";
         }
+        List<Wallet> walletList=new ArrayList<>();
+        walletList= WalletDao.history();
+        turnover=0;
         switch (action){
             case "naptien":
-                turnover= Integer.parseInt(req.getParameter("money"));
                 requestDispatcher = req.getRequestDispatcher("/naptienadmin.jsp");
                 requestDispatcher.forward(req,resp);
                 break;
-            case "naptienkhach":
-                String username=req.getParameter("username");
-                int money= Integer.parseInt(req.getParameter("addmoney"));
+//            case "naptienkhach":
+//                String username=req.getParameter("username");
+//                int money= Integer.parseInt(req.getParameter("addmoney"));
+//                break;
+            case "lichsu":
+                req.setAttribute("history",walletList);
+                req.setAttribute("turnover",turnover);
+                requestDispatcher = req.getRequestDispatcher("/lichsunaptien.jsp");
+                requestDispatcher.forward(req,resp);
+                break;
+            default:
+                for (Wallet w:
+                        walletList) {
+                    turnover+=w.getMoney();
+                }
+                req.setAttribute("turnover",turnover);
+                requestDispatcher = req.getRequestDispatcher("/admin.jsp");
+                requestDispatcher.forward(req,resp);
         }
     }
 
@@ -40,11 +61,19 @@ public class AdminServlet extends HttpServlet {
         if (action==null){
             action="";
         }
+        List<Wallet> walletList=new ArrayList<>();
+        walletList= WalletDao.history();
+        turnover=0;
+        for (Wallet w:
+                walletList) {
+            turnover+=w.getMoney();
+        }
+
         switch (action){
             case "naptienkhach":
                 String username=req.getParameter("username");
                 int money= Integer.parseInt(req.getParameter("addmoney"));
-                turnover+=money;
+                WalletDao.addmoney(username,money);
                 if (apartmentDAO.addMoney(username,money)){
                     req.setAttribute("turnover",turnover);
                 requestDispatcher = req.getRequestDispatcher("/admin.jsp");
@@ -56,4 +85,11 @@ public class AdminServlet extends HttpServlet {
                 break;
         }
     }
+//    public int summoney(List<Wallet> walletList){
+//        for (Wallet w:
+//             walletList) {
+//            turnover+=w.getMoney();
+//        }
+//        return turnover;
+//    }
 }
