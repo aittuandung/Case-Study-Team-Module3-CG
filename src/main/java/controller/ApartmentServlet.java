@@ -28,6 +28,7 @@ public class ApartmentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String action = req.getParameter("action");
         RequestDispatcher requestDispatcher = null;
         if (action == null) {
@@ -59,6 +60,7 @@ public class ApartmentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String action = req.getParameter("action");
         RequestDispatcher requestDispatcher = null;
         if (action == null) {

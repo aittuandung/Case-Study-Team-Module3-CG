@@ -27,6 +27,7 @@ public class LoginServlet extends HttpServlet {
     static int turnover=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String action=req.getParameter("action");
         List<Apartment> apartments=new ArrayList<>();
 
@@ -57,6 +58,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         RequestDispatcher dispatcher = null;
         List<Apartment> apartments=new ArrayList<>();
         apartments= apartmentDAO.selectAll("e");
