@@ -2,6 +2,7 @@ package controller;
 
 import dao.ApartmentDAO;
 import dao.LoginAndRegistrationDao;
+import dao.SectorDAO;
 import model.Apartment;
 import model.Customer;
 
@@ -21,9 +22,12 @@ public class LoginServlet extends HttpServlet {
     ApartmentDAO apartmentDAO=new ApartmentDAO();
     List<ApartmentDAO> apartmentDAOS=new ArrayList<>();
     List<Apartment>apartments= new ArrayList<>();
+
+    SectorDAO sectorDAO = new SectorDAO();
     static int turnover=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String action=req.getParameter("action");
         List<Apartment> apartments=new ArrayList<>();
 
@@ -31,11 +35,27 @@ public class LoginServlet extends HttpServlet {
         if (action==null){
             action="";
         }
+        String account=req.getParameter("id");
         switch (action){
             case "logout":
                 Login.account = null;
                 resp.sendRedirect("/index.jsp");
                 break;
+            case "createch":
+//                String account=req.getParameter("id");
+                req.setAttribute("sector", sectorDAO.getAll() );
+                req.setAttribute("username",account);
+                dispatcher=req.getRequestDispatcher("/inputApartment.jsp");
+                dispatcher.forward(req,resp);
+            case "chuyenhuong":
+//                String account=req.getParameter("id");
+                apartments= apartmentDAO.selectAll("a");
+                req.setAttribute("username",account);
+                req.setAttribute("apartments",apartments);
+                dispatcher=req.getRequestDispatcher("/indexcustormer.jsp");
+                dispatcher.forward(req,resp);
+                break;
+
             default:
 
 //                req.setAttribute("apartments",apartments);
@@ -48,6 +68,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         RequestDispatcher dispatcher = null;
         List<Apartment> apartments=new ArrayList<>();
         apartments= apartmentDAO.selectAll("e");

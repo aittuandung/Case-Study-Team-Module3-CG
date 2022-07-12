@@ -151,9 +151,9 @@
             <a class="nav-link " href="/showapartment?action=shownha">Nhà Đăng Bán</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link " href="blog-grid.jsp">Blog</a>
-          </li>
+<%--          <li class="nav-item">--%>
+<%--            <a class="nav-link " href="blog-grid.jsp">Blog</a>--%>
+<%--          </li>--%>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>

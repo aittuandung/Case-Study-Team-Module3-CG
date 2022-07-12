@@ -53,13 +53,14 @@ public class SectorDAO implements CRUD<Sector> {
     }
 
     @Override
-    public Sector select(int idKV, String userName) {
+    public Sector select(int id, String userName) {
         Sector sector = null;
         try (Connection connection =  connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SECTOR_BY_ID);) {
-            preparedStatement.setInt(1, idKV);
+            preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
+                int idKV = rs.getInt("idKV");
                 String province = rs.getString("province");
                 String district = rs.getString("district");
                 String subDistrict = rs.getString("subDistrict");
@@ -92,6 +93,25 @@ public class SectorDAO implements CRUD<Sector> {
         }
         return sectors;
     }
+    public List<Sector> getAll() {
+        String sql = "SELECT * FROM CASE_STUDY_MD3.sector";
+        List<Sector> sectors = new ArrayList<>();
+        try (Connection connection = connect_mySQL.getConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                int idKV = resultSet.getInt(1);
+                String province = resultSet.getString(2);
+                String district = resultSet.getString(3);
+                String subDistrict = resultSet.getString(4);
+                sectors.add(new Sector(idKV, province, district, subDistrict));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return sectors;
+    }
 
     @Override
     public boolean delete(int id, String name) throws SQLException {
@@ -111,10 +131,10 @@ public class SectorDAO implements CRUD<Sector> {
             return false;
         }
     }
-    public int findIDKV(String provine) {
+    public int findIDKV(String province) {
         try (Connection connection = connect_mySQL.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(SEACH_IDKV_SQL);
-            preparedStatement.setString(1, provine);
+            preparedStatement.setString(1, province);
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             int idKV = resultSet.getInt(1);
@@ -149,4 +169,4 @@ public class SectorDAO implements CRUD<Sector> {
         }
         return null;
     }
-    }
+}

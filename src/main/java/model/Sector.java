@@ -17,8 +17,8 @@ public class Sector {
     }
 
     public Sector(int idKV, String province) {
-        this.idKV=idKV;
-        this.province=province;
+        this.idKV = idKV;
+        this.province = province;
     }
 
     public int getIdKV() {

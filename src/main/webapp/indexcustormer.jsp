@@ -152,7 +152,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="blog-grid.jsp">Blog</a>
+                    <a class="nav-link " href="userCreated.jsp">Bài Đăng Của Bạn</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -180,7 +180,7 @@
 <%--                </li>--%>
                 <li class="nav-item dropdown">
 
-                        <a href="/login?action=create" methods="post" class="nav-link">Tạo bài đăng</a>
+                        <a href="/login?action=createch&id=${username}" methods="post" class="nav-link">Tạo bài đăng</a>
                 </li>
 
             </ul>
