@@ -1,17 +1,17 @@
 html, body{
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
     font-size: 100%;
     overflow-x: hidden;
     background: url(http://www.vanthailand.com.vn/templates/pictures/news/1468638651_khong-con-duoc-xay-chung-cu-tren-dat-vang-ha-noi.jpg) no-repeat 0px 0px;
-    background-size:cover;
+	background-size:cover;
 }
 .phpkida-main h2 {
-    color: #8b5c7e;
+	color: #8b5c7e;
     font-size: 29px;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding-bottom: 15px;
-    text-align: center;
+	    text-align: center;
 }
 .phpkida-main {
     width: 30%;
@@ -28,33 +28,33 @@ input.ggg{
     font-size: 14px;
     color: #fff;
     margin: 14px 0px;
-    background: none;
+	background: none;
 }
 .phpkida-main span {
     font-size: 16px;
     color: #fff;
     float: left;
     width: 50%;
-    margin-top: 8px;
+	margin-top: 8px;
 }
 .span-right {
-    text-align:right;
+	text-align:right;
 }
 .phpkida-main a {
     color: #fff;
-    transition:0.5s all;
-    -webkit-transition:0.5s all;
-    -o-transition:0.5s all;
-    -moz-transition:0.5s all;
-    -ms-transition:0.5s all;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-o-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-ms-transition:0.5s all;
 }
 .phpkida-main a:hover{
-    color:#f0bcb4;
-    transition:0.5s all;
-    -webkit-transition:0.5s all;
-    -o-transition:0.5s all;
-    -moz-transition:0.5s all;
-    -ms-transition:0.5s all;
+	color:#f0bcb4;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-o-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-ms-transition:0.5s all;
 }
 .phpkida-main input[type="submit"] {
     padding: 12px 38px;
@@ -65,7 +65,7 @@ input.ggg{
     color: white;
     border: none;
     outline: none;
-    display: table;
+	display: table;
     cursor: pointer;
     margin: 45px auto 31px;
     transition: 0.5s all;
@@ -75,12 +75,12 @@ input.ggg{
     -ms-transition: 0.5s all;
 }
 .phpkida-main input[type="submit"]:hover {
-    background:#8b5c7e;
-    transition:0.5s all;
-    -webkit-transition:0.5s all;
-    -o-transition:0.5s all;
-    -moz-transition:0.5s all;
-    -ms-transition:0.5s all;
+	background:#8b5c7e;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-o-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-ms-transition:0.5s all;
 }
 .phpkida-main p a {
     color: #f0bcb4;
@@ -92,7 +92,7 @@ input.ggg{
 .phpkida-main p {
     font-size: 17px;
     color: #fff;
-    text-align: center;
+	text-align: center;
 }
 /*--//login--*/
 h4 input[type="checkbox"] {
@@ -100,31 +100,31 @@ h4 input[type="checkbox"] {
 }
 .phpkida-main h4{
     margin-right: 10px;
-    color:#fff;
-    font-weight:400;
-    font-size:14px;
+	color:#fff;
+	font-weight:400;
+	font-size:14px;
 }
-/*--placeholder-color--*/
+ /*--placeholder-color--*/
 ::-webkit-input-placeholder {
-    color:#fff !important;
+	color:#fff !important;
 }
 :-moz-placeholder { /* Firefox 18- */
-    color:#fff !important;
+	color:#fff !important; 
 }
 ::-moz-placeholder {  /* Firefox 19+ */
-    color:#fff !important;
+	color:#fff !important;
 }
-:-ms-input-placeholder {
-    color:#fff !important;
+:-ms-input-placeholder {  
+	color:#fff !important;
 }
 
 @media(max-width:940px)
 {
-    .phpkida-main {width: 50%;}
+	.phpkida-main {width: 50%;}
 }
 
 @media(max-width:550px)
 {
-    .phpkida-main {width: 90%; padding: 5%;}
-    input.ggg {width: 90%; padding: 15px 4%;}
+	.phpkida-main {width: 90%; padding: 5%;}
+	input.ggg {width: 90%; padding: 15px 4%;}
 }

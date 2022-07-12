@@ -16,6 +16,7 @@ public class AdminServlet extends HttpServlet {
     int turnover=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String action=req.getParameter("action");
         RequestDispatcher requestDispatcher = null;
         if (action==null){
@@ -35,6 +36,7 @@ public class AdminServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         String action=req.getParameter("action");
         RequestDispatcher requestDispatcher = null;
         if (action==null){

@@ -9,8 +9,8 @@ import connection.Connect_MySQL;
 import model.Customer;
 
 public class LoginAndRegistrationDao {
-    String addAccount="insert into case_study_md3.customer (userName,passWord,fullname,birthday,idCart,homeTown,phoneNumber,email,wallet) value (?,?,?,?,?,?,?,?,?)";
-    String loginAccount= "select userName,passWord from case_study_md3.Customer where userName=? and passWord=? ";
+    String addAccount="insert into CASE_STUDY_MD3.customer (userName,passWord,fullname,birthday,idCart,homeTown,phoneNumber,email,wallet) value (?,?,?,?,?,?,?,?,?)";
+    String loginAccount= "select userName,passWord from CASE_STUDY_MD3.customer where userName=? and passWord=? ";
 
     Connect_MySQL connect_mySQL = new Connect_MySQL();
 

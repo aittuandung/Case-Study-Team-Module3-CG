@@ -17,12 +17,12 @@ public class CustomerServlet extends HttpServlet {
     List<Customer> customers=new ArrayList<>();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String action=req.getParameter("action");
         RequestDispatcher dispatcher = null;
         if (action==null){
             action="";
         }
-        System.out.println("vao get");
         switch (action){
             case "login":
 //                login(req,resp,dispatcher);
@@ -35,6 +35,7 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         RequestDispatcher dispatcher = null;
         String action=req.getParameter("action");
         if (action==null){

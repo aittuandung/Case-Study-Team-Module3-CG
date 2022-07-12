@@ -49,25 +49,24 @@ public class LoginServlet extends HttpServlet {
                     dispatcher.forward(req, resp);
                 }
                 break;
-//            case "xemchitiet":
-//                int idCH= Integer.parseInt(req.getParameter("idCH"));
-//                Apartment apartment = apartmentDAO.select(idCH,"id");
-//                req.setAttribute("apartment",apartment);
-//                dispatcher = req.getRequestDispatcher("/showchitiet.jsp");
-//                dispatcher.forward(req,resp);
-//                apartments= apartmentDAO.selectAll("a");
-//                req.setAttribute("apartments",apartments);
-//                if (username!=null){
-//                    req.setAttribute("username",username);
-//                    dispatcher = req.getRequestDispatcher("/showapartment.jsp");
-//                    dispatcher.forward(req, resp);
-//                } else {
-//                    dispatcher = req.getRequestDispatcher("/index.jsp");
-//                    dispatcher.forward(req, resp);
-//                }
-//                break;
+            case "xemchitiet":
+                int idCH= Integer.parseInt(req.getParameter("idCH"));
+                Apartment apartment = apartmentDAO.select(idCH,"id");
+                req.setAttribute("apartment",apartment);
+                dispatcher = req.getRequestDispatcher("/showchitiet.jsp");
+                dispatcher.forward(req,resp);
+                apartments= apartmentDAO.selectAll("a");
+                req.setAttribute("apartments",apartments);
+                if (username!=null){
+                    req.setAttribute("username",username);
+                    dispatcher = req.getRequestDispatcher("/showapartment.jsp");
+                    dispatcher.forward(req, resp);
+                } else {
+                    dispatcher = req.getRequestDispatcher("/index.jsp");
+                    dispatcher.forward(req, resp);
+                }
+                break;
             default:
-//                req.setAttribute("apartments",apartments);
                 apartments= apartmentDAO.selectAll("a");
                 req.setAttribute("apartments", apartments);
                 if (username==null) {

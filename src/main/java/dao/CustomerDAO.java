@@ -12,7 +12,6 @@ import java.util.List;
 public class CustomerDAO implements CRUD<Customer> {
     Connect_MySQL connect_mySQL = new Connect_MySQL();
 
-    List<Customer>customers= new ArrayList<>();
     private static final String INSERT_CUSTOMER_SQL = "INSERT INTO customer (userName, passWord, fullName, birthDay, idCard, homeTown, phoneNumber, email, wallet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     private static final String SELECT_CUSTOMER_BY_USERNAME = "select * from customer where userName =?";
@@ -65,6 +64,7 @@ public class CustomerDAO implements CRUD<Customer> {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
+                String username = rs.getString("userName");
                 String passWord = rs.getString("passWord");
                 String fullName = rs.getString("fullName");
                 String birthDay = rs.getString("birthDay");
@@ -73,7 +73,7 @@ public class CustomerDAO implements CRUD<Customer> {
                 String phoneNumber = rs.getString("'phoneNumber");
                 String email = rs.getString("email");
                 double wallet = rs.getDouble("wallet");
-                customer = new Customer(userName, passWord, fullName, birthDay, idCard, homeTown, phoneNumber, email, wallet);
+                customer = new Customer(username, passWord, fullName, birthDay, idCard, homeTown, phoneNumber, email, wallet);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -108,6 +108,31 @@ public class CustomerDAO implements CRUD<Customer> {
         return customers;
     }
 
+    public List<Customer> getAll() {
+        String sql = "SELECT * FROM CASE_STUDY_MD3.customer";
+        List<Customer> customers = new ArrayList<>();
+        try (Connection connection = connect_mySQL.getConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                String userName = resultSet.getString(1);
+                String passWord = resultSet.getString(2);
+                String fullName = resultSet.getString(3);
+                String birthDay = resultSet.getString(4);
+                String idCard = resultSet.getString(5);
+                String homeTown = resultSet.getString(6);
+                String phoneNumber = resultSet.getString(7);
+                String email = resultSet.getString(8);
+                double wallet = resultSet.getDouble(9);
+                customers.add(new Customer(userName, passWord, fullName, birthDay, idCard, homeTown, phoneNumber, email, wallet));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customers;
+    }
+
     @Override
     public boolean delete(int id, String name) throws SQLException {
         return false;
@@ -131,12 +156,12 @@ public class CustomerDAO implements CRUD<Customer> {
         }
     }
 
-    public Customer findByUserName(String UserName){
+    public Customer findByUserName(String UserName) {
         String sql = "select * from customer";
         Connection connection = Connect_MySQL.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(Integer.parseInt("1"),UserName);
+            preparedStatement.setString(Integer.parseInt("1"), UserName);
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             String userName = resultSet.getString(1);
@@ -149,10 +174,30 @@ public class CustomerDAO implements CRUD<Customer> {
             String email = resultSet.getString(8);
             Double wallet = resultSet.getDouble(9);
 
-            Customer customer = new Customer(userName,pass,fullName,birthDay,idCard,homeTown,phoneNumber,email,wallet);
+            Customer customer = new Customer(userName, pass, fullName, birthDay, idCard, homeTown, phoneNumber, email, wallet);
             return customer;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Customer findByName(String name) {
+        String sql = "select * from CASE_STUDY_MD3.customer where userName = ?";
+        try (Connection connection = connect_mySQL.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+//            int userName = resultSet.getInt(1);
+            String userName = resultSet.getString(1);
+            Customer customer = new Customer(userName);
+            return customer;
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
     }
 }
