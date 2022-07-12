@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -31,6 +32,7 @@ public class ApartmentServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         String action = req.getParameter("action");
         RequestDispatcher requestDispatcher = null;
+        String username=req.getParameter("id");
         if (action == null) {
             action = "";
         }
@@ -43,14 +45,17 @@ public class ApartmentServlet extends HttpServlet {
                 requestDispatcher = req.getRequestDispatcher("/inputApartment.jsp");
                 requestDispatcher.forward(req, resp);
             case "shownha":
+                req.setAttribute("username",username);
                 req.setAttribute("apartments", apartments);
                 requestDispatcher = req.getRequestDispatcher("/showapartment.jsp");
                 requestDispatcher.forward(req, resp);
                 break;
             case "showchitiet":
+                HttpSession session = req.getSession();
                 int idCH = Integer.parseInt(req.getParameter("idCH"));
                 Apartment apartment = apartmentDAO.select(idCH, "id");
-                req.setAttribute("apartment", apartment);
+                req.setAttribute("username",username);
+                session.setAttribute("a", apartment);
                 requestDispatcher = req.getRequestDispatcher("/showchitiet.jsp");
                 requestDispatcher.forward(req, resp);
 

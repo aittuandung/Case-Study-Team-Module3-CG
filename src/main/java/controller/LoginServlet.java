@@ -1,6 +1,7 @@
 package controller;
 
 import dao.ApartmentDAO;
+import dao.CustomerDAO;
 import dao.LoginAndRegistrationDao;
 import dao.SectorDAO;
 import model.Apartment;
@@ -19,11 +20,10 @@ import java.util.List;
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     List<Customer> customers=new ArrayList<>();
-    ApartmentDAO apartmentDAO=new ApartmentDAO();
     List<ApartmentDAO> apartmentDAOS=new ArrayList<>();
     List<Apartment>apartments= new ArrayList<>();
-
-    SectorDAO sectorDAO = new SectorDAO();
+    ApartmentDAO apartmentDAO = new ApartmentDAO();
+    SectorDAO sectorDao = new SectorDAO();
     static int turnover=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,15 +35,46 @@ public class LoginServlet extends HttpServlet {
         if (action==null){
             action="";
         }
+        String username=req.getParameter("id");
         String account=req.getParameter("id");
         switch (action){
+
             case "logout":
                 Login.account = null;
                 resp.sendRedirect("/index.jsp");
                 break;
+            case "nhadangban" :
+                apartments= apartmentDAO.selectAll("a");
+                req.setAttribute("apartments",apartments);
+                if (username!=null){
+                    req.setAttribute("username",username);
+                    dispatcher = req.getRequestDispatcher("/showapartment.jsp");
+                    dispatcher.forward(req, resp);
+                } else {
+                    dispatcher = req.getRequestDispatcher("/index.jsp");
+                    dispatcher.forward(req, resp);
+                }
+                break;
+            case "home":
+                username=req.getParameter("id");
+                if (username==null){
+                    resp.sendRedirect("/index.jsp");
+                }else
+                {
+                    req.setAttribute("username",username);
+                    dispatcher=req.getRequestDispatcher("/indexcustormer.jsp");
+                    dispatcher.forward(req,resp);
+                }
+                break;
+            case "xemchitiet":
+                int idCH= Integer.parseInt(req.getParameter("idCH"));
+                Apartment apartment = apartmentDAO.select(idCH,"id");
+                req.setAttribute("apartment",apartment);
+                dispatcher = req.getRequestDispatcher("/showchitiet.jsp");
             case "createch":
 //                String account=req.getParameter("id");
-                req.setAttribute("sector", sectorDAO.getAll() );
+
+                req.setAttribute("sector", sectorDao.getAll() );
                 req.setAttribute("username",account);
                 dispatcher=req.getRequestDispatcher("/inputApartment.jsp");
                 dispatcher.forward(req,resp);
@@ -56,13 +87,30 @@ public class LoginServlet extends HttpServlet {
                 dispatcher.forward(req,resp);
                 break;
 
+//                apartments= apartmentDAO.selectAll("a");
+//                req.setAttribute("apartments",apartments);
+//                if (username!=null){
+//                    req.setAttribute("username",username);
+//                    dispatcher = req.getRequestDispatcher("/showapartment.jsp");
+//                    dispatcher.forward(req, resp);
+//                } else {
+//                    dispatcher = req.getRequestDispatcher("/index.jsp");
+//                    dispatcher.forward(req, resp);
+//                }
+//                break;
             default:
 
 //                req.setAttribute("apartments",apartments);
                 apartments= apartmentDAO.selectAll("a");
-                req.setAttribute("apartments",apartments);
-                dispatcher=req.getRequestDispatcher("/index.jsp");
-                dispatcher.forward(req,resp);
+                req.setAttribute("apartments", apartments);
+                if (username==null) {
+                    dispatcher = req.getRequestDispatcher("/index.jsp");
+                    dispatcher.forward(req, resp);
+                } else {
+                    req.setAttribute("username",username);
+                    dispatcher = req.getRequestDispatcher("/indexcustormer.jsp");
+                    dispatcher.forward(req, resp);
+                }
         }
     }
 
@@ -89,7 +137,9 @@ public class LoginServlet extends HttpServlet {
                     dispatcher=req.getRequestDispatcher("/indexcustormer.jsp");
                     dispatcher.forward(req,resp);
                 }else if (userName.equals("admin")&& passWord.equals("admin")){
-                    resp.sendRedirect("/admin");
+                    req.setAttribute("turnover",turnover);
+                    dispatcher=req.getRequestDispatcher("/admin.jsp");
+                    dispatcher.forward(req,resp);
                 }else if (!loginAndRegistrationDao.getAllCustomer(userName,passWord)){
                     resp.sendRedirect("/login.jsp");
                 }
@@ -113,8 +163,12 @@ public class LoginServlet extends HttpServlet {
                 dispatcher.forward(req,resp);
                 break;
             default:
-                dispatcher=req.getRequestDispatcher("index.jsp");
+                apartments= apartmentDAO.selectAll("a");
+                req.setAttribute("apartments",apartments);
+                dispatcher=req.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(req,resp);
+//                dispatcher=req.getRequestDispatcher("index.jsp");
+//                dispatcher.forward(req,resp);
         }
     }
 }

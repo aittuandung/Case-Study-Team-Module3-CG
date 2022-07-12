@@ -139,38 +139,23 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.jsp"><img src="https://staticfile.batdongsan.com.vn/images/logo/h-logo.svg" alt=""></a>
+      <a class="navbar-brand text-brand" href="/login?action=home&id=${username}"><img src="https://staticfile.batdongsan.com.vn/images/logo/h-logo.svg" alt=""></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link active" href="index.jsp">Trang Chủ</a>
+            <a class="nav-link active" href="/login?action=home&id=${username}">Trang Chủ</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="showapartment.jsp">Nhà Đăng Bán</a>
+            <a class="nav-link " href="/login?action=nhadangban&id=${username}">Nhà Đăng Bán</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link " href="blog-grid.jsp">Blog</a>
-          </li>
+<%--          <li class="nav-item">--%>
+<%--            <a class="nav-link " href="blog-grid.jsp">Blog</a>--%>
+<%--          </li>--%>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item " href="showchitiet.jsp">Property Single</a>
-              <a class="dropdown-item " href="blog-single.html">Blog Single</a>
-              <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item " href="showcustormmer.jsp">Agent Single</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Đăng Nhập</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/registration.jsp">Đăng Kí</a>
-          </li>
         </ul>
       </div>
 
