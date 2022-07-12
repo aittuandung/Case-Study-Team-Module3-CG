@@ -25,7 +25,7 @@ public class ApartmentDAO implements CRUD<Apartment> {
 
     private static final String SELECT_APARTMENT_BY_ID = "select * from CASE_STUDY_MD3.customer as ctm join CASE_STUDY_MD3.apartment as a on ctm.userName=a.userName join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV where idCH =?";
 
-    private static final String SELECT_ALL_APARTMENT = "select * from CASE_STUDY_MD3.apartment";
+    private static final String SELECT_ALL_APARTMENT = "select * from CASE_STUDY_MD3.customer as ctm join CASE_STUDY_MD3.apartment as a on ctm.userName=a.userName join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV";
 
     private static final String DELETE_APARTMENT_SQL = "delete from CASE_STUDY_MD3.apartment where idCH = ?;";
 

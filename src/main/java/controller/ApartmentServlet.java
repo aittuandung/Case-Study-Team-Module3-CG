@@ -26,11 +26,10 @@ public class ApartmentServlet extends HttpServlet {
         if (action==null){
             action="";
         }
-
+        apartments=apartmentDAO.selectAll("a");
 
         switch (action){
-            default:
-                apartments=apartmentDAO.selectAll("a");
+            case "shownha":
                 req.setAttribute("apartments",apartments);
                 requestDispatcher = req.getRequestDispatcher("/showapartment.jsp");
                 requestDispatcher.forward(req,resp);

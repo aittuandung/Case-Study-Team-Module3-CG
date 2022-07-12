@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,32 +139,19 @@
             <span></span>
             <span></span>
         </button>
-        <a class="navbar-brand text-brand" href="index.jsp"><img src="https://staticfile.batdongsan.com.vn/images/logo/h-logo.svg" alt=""></a>
+        <a class="navbar-brand text-brand"><img src="https://staticfile.batdongsan.com.vn/images/logo/h-logo.svg" alt=""></a>
 
         <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.jsp">Trang Chủ</a>
+                    <a class="nav-link active" href="/login?id=${username}">Trang Chủ</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="/showapartment?action=shownha">Nhà Đăng Bán</a>
+                    <a class="nav-link " href="/login?action=nhadangban&id=${username}">Nhà Đăng Bán</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link " href="blog-grid.jsp">Blog</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item " href="showchitiet.jsp">Property Single</a>
-                        <a class="dropdown-item " href="blog-single.html">Blog Single</a>
-                        <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
-                        <a class="dropdown-item " href="showcustormmer.jsp">Agent Single</a>
-                    </div>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#">
                         Xin Chào ${username}
@@ -173,14 +161,14 @@
                         <a class="dropdown-item " href="#">Chỉnh sửa thông tin</a>
                     </div>
                 </li>
-<%--                <li class="nav-item">--%>
-<%--                    <a class="nav-link" href="#">--%>
-<%--                        Xin Chào ${username}--%>
-<%--                    </a>--%>
-<%--                </li>--%>
+                <%--                <li class="nav-item">--%>
+                <%--                    <a class="nav-link" href="#">--%>
+                <%--                        Xin Chào ${username}--%>
+                <%--                    </a>--%>
+                <%--                </li>--%>
                 <li class="nav-item dropdown">
 
-                        <a href="/login?action=createch" methods="post" class="nav-link">Tạo bài đăng</a>
+                    <a href="/login?action=createch" methods="post" class="nav-link">Tạo bài đăng</a>
                 </li>
 
             </ul>
@@ -382,203 +370,203 @@
                     </div>
                 </div>
             </div>
+            <c:forEach items="${apartments}" var="a">
+                <div id="property-carousel" class="swiper">
+                    <div class="swiper-wrapper">
 
-            <div id="property-carousel" class="swiper">
-                <div class="swiper-wrapper">
-
-                    <div class="carousel-item-b swiper-slide">
-                        <div class="card-box-a card-shadow">
-                            <div class="img-box-a">
-                                <img src="assets/img/property-6.jpg" alt="" class="img-a img-fluid">
-                            </div>
-                            <div class="card-overlay">
-                                <div class="card-overlay-a-content">
-                                    <div class="card-header-a">
-                                        <h2 class="card-title-a">
-                                            <a href="showchitiet.jsp">206 Mount
-                                                <br /> Olive Road Two</a>
-                                        </h2>
-                                    </div>
-                                    <div class="card-body-a">
-                                        <div class="price-box d-flex">
-                                            <span class="price-a">rent | $ 12.000</span>
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    <img src="assets/img/property-6.jpg" alt="" class="img-a img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h5 class="card-title-a">
+                                                    ${a.address}
+                                            </h5>
                                         </div>
-                                        <a href="#" class="link-a">Click here to view
-                                            <span class="bi bi-chevron-right"></span>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer-a">
-                                        <ul class="card-info d-flex justify-content-around">
-                                            <li>
-                                                <h4 class="card-info-title">Area</h4>
-                                                <span>340m
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">${a.price} tỷ</span>
+                                            </div>
+                                            <a href="/showapartment?action=showchitiet&idCH=${a.idCH}" class="link-a">Xem chi tiết
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Diện tích</h4>
+                                                    <span>340m
                             <sup>2</sup>
                           </span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Beds</h4>
-                                                <span>2</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Baths</h4>
-                                                <span>4</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Garages</h4>
-                                                <span>1</span>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Beds</h4>
+                                                    <span>2</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Baths</h4>
+                                                    <span>4</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Garages</h4>
+                                                    <span>1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><!-- End carousel item -->
+                        </div><!-- End carousel item -->
 
-                    <div class="carousel-item-b swiper-slide">
-                        <div class="card-box-a card-shadow">
-                            <div class="img-box-a">
-                                <img src="assets/img/property-3.jpg" alt="" class="img-a img-fluid">
-                            </div>
-                            <div class="card-overlay">
-                                <div class="card-overlay-a-content">
-                                    <div class="card-header-a">
-                                        <h2 class="card-title-a">
-                                            <a href="showchitiet.jsp">157 West
-                                                <br /> Central Park</a>
-                                        </h2>
-                                    </div>
-                                    <div class="card-body-a">
-                                        <div class="price-box d-flex">
-                                            <span class="price-a">rent | $ 12.000</span>
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    <img src="assets/img/property-3.jpg" alt="" class="img-a img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a href="showchitiet.jsp">157 West
+                                                    <br /> Central Park</a>
+                                            </h2>
                                         </div>
-                                        <a href="showchitiet.jsp" class="link-a">Click here to view
-                                            <span class="bi bi-chevron-right"></span>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer-a">
-                                        <ul class="card-info d-flex justify-content-around">
-                                            <li>
-                                                <h4 class="card-info-title">Area</h4>
-                                                <span>340m
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">rent | $ 12.000</span>
+                                            </div>
+                                            <a href="showchitiet.jsp" class="link-a">Click here to view
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span>340m
                             <sup>2</sup>
                           </span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Beds</h4>
-                                                <span>2</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Baths</h4>
-                                                <span>4</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Garages</h4>
-                                                <span>1</span>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Beds</h4>
+                                                    <span>2</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Baths</h4>
+                                                    <span>4</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Garages</h4>
+                                                    <span>1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><!-- End carousel item -->
+                        </div><!-- End carousel item -->
 
-                    <div class="carousel-item-b swiper-slide">
-                        <div class="card-box-a card-shadow">
-                            <div class="img-box-a">
-                                <img src="assets/img/property-7.jpg" alt="" class="img-a img-fluid">
-                            </div>
-                            <div class="card-overlay">
-                                <div class="card-overlay-a-content">
-                                    <div class="card-header-a">
-                                        <h2 class="card-title-a">
-                                            <a href="showchitiet.jsp">245 Azabu
-                                                <br /> Nishi Park let</a>
-                                        </h2>
-                                    </div>
-                                    <div class="card-body-a">
-                                        <div class="price-box d-flex">
-                                            <span class="price-a">rent | $ 12.000</span>
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    <img src="assets/img/property-7.jpg" alt="" class="img-a img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a href="showchitiet.jsp">245 Azabu
+                                                    <br /> Nishi Park let</a>
+                                            </h2>
                                         </div>
-                                        <a href="showchitiet.jsp" class="link-a">Click here to view
-                                            <span class="bi bi-chevron-right"></span>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer-a">
-                                        <ul class="card-info d-flex justify-content-around">
-                                            <li>
-                                                <h4 class="card-info-title">Area</h4>
-                                                <span>340m
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">rent | $ 12.000</span>
+                                            </div>
+                                            <a href="showchitiet.jsp" class="link-a">Click here to view
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span>340m
                             <sup>2</sup>
                           </span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Beds</h4>
-                                                <span>2</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Baths</h4>
-                                                <span>4</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Garages</h4>
-                                                <span>1</span>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Beds</h4>
+                                                    <span>2</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Baths</h4>
+                                                    <span>4</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Garages</h4>
+                                                    <span>1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><!-- End carousel item -->
+                        </div><!-- End carousel item -->
 
-                    <div class="carousel-item-b swiper-slide">
-                        <div class="card-box-a card-shadow">
-                            <div class="img-box-a">
-                                <img src="assets/img/property-10.jpg" alt="" class="img-a img-fluid">
-                            </div>
-                            <div class="card-overlay">
-                                <div class="card-overlay-a-content">
-                                    <div class="card-header-a">
-                                        <h2 class="card-title-a">
-                                            <a href="showchitiet.jsp">204 Montal
-                                                <br /> South Bela Two</a>
-                                        </h2>
-                                    </div>
-                                    <div class="card-body-a">
-                                        <div class="price-box d-flex">
-                                            <span class="price-a">rent | $ 12.000</span>
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    <img src="assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a href="showchitiet.jsp">204 Montal
+                                                    <br /> South Bela Two</a>
+                                            </h2>
                                         </div>
-                                        <a href="showchitiet.jsp" class="link-a">Click here to view
-                                            <span class="bi bi-chevron-right"></span>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer-a">
-                                        <ul class="card-info d-flex justify-content-around">
-                                            <li>
-                                                <h4 class="card-info-title">Area</h4>
-                                                <span>340m
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">rent | $ 12.000</span>
+                                            </div>
+                                            <a href="showchitiet.jsp" class="link-a">Click here to view
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span>340m
                             <sup>2</sup>
                           </span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Beds</h4>
-                                                <span>2</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Baths</h4>
-                                                <span>4</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Garages</h4>
-                                                <span>1</span>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Beds</h4>
+                                                    <span>2</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Baths</h4>
+                                                    <span>4</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Garages</h4>
+                                                    <span>1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><!-- End carousel item -->
+                        </div><!-- End carousel item -->
+                    </div>
                 </div>
-            </div>
+            </c:forEach>
             <div class="propery-carousel-pagination carousel-pagination"></div>
 
         </div>

@@ -54,17 +54,17 @@
             <label>Mô tả căn hộ</label>
             <input type="text" class="form-control">
         </div>
-            <label>Kiểu loại căn hộ</label>
-            <select name="classify" id="classify" class="form-group" style="
+        <label>Kiểu loại căn hộ</label>
+        <select name="classify" id="classify" class="form-group" style="
     width: 100%;
 
     height: 34px;
     margin-bottom: 15px;">
-                <option value="chungcu">Chung Cư</option>
-                <option value="bietthu">Biệt Thự</option>
-                <option value="nhadat">Nhà Đất</option>
-                <option value="khac">Các Loại Bất Động Sản Khác</option>
-            </select>
+            <option value="chungcu">Chung Cư</option>
+            <option value="bietthu">Biệt Thự</option>
+            <option value="nhadat">Nhà Đất</option>
+            <option value="khac">Các Loại Bất Động Sản Khác</option>
+        </select>
 
         <div style="display: flex ; justify-content: center "><button type="submit" style="padding: 20px ; background: #0a53be ; border-radius: 4px ; border: none ; color: #dae0e5" >
             <a href="index.jsp">Tạo bài đăng</a></button></div>
