@@ -20,8 +20,8 @@ public class ApartmentDAO implements CRUD<Apartment> {
     SectorDAO sectorDAO = new SectorDAO();
 //    classify like concat('%',?,'%')
 
-
-    private static final String INSERT_APARTMENT_SQL = "INSERT INTO `CASE_STUDY_MD3`.`apartment` ( `address`, `price`, `area`, `picture`, `status`, `description`, `datePost`, `classify`, `userName`, `idKV`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String DEDUCE_WALLET_BYID=" UPDATE CASE_STUDY_MD3.customer SET  wallet=? where username=?";
+    private static final String INSERT_APARTMENT_SQL = "INSERT INTO `CASE_STUDY_MD3`.`apartment` ( `address`, `price`, `area`, `picture`, `status`, `description`, `classify`, `userName`, `idKV`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     private static final String SELECT_APARTMENT_BY_ID = "select * from CASE_STUDY_MD3.customer as ctm join CASE_STUDY_MD3.apartment as a on ctm.userName=a.userName join CASE_STUDY_MD3.sector as s on s.idKV = a.idKV where idCH =?";
 
@@ -91,7 +91,7 @@ public class ApartmentDAO implements CRUD<Apartment> {
 //        }
 //    }
 
-    public boolean addApartment(String address,double price,double area,String picture,String  status,String  description,Date datePost,String classify,String username, int idKV) {
+    public boolean addApartment(String address,double price,double area,String picture,String  status,String  description,String classify,String username, int idKV) {
         try (Connection connection = connect_mySQL.getConnection(); PreparedStatement statement = connection.prepareStatement(INSERT_APARTMENT_SQL)) {
 //            statement.setInt(1, idCH);
             statement.setString(1, address);
@@ -100,11 +100,11 @@ public class ApartmentDAO implements CRUD<Apartment> {
             statement.setString(4, picture);
             statement.setString(5, status);
             statement.setString(6, description);
-            statement.setDate(7,datePost);
-            statement.setString(8, classify);
-            statement.setString(9, username);
+//            statement.setDate(7,datePost);
+            statement.setString(7, classify);
+            statement.setString(8, username);
 //            statement.setString(10, customer.getUserName());
-            statement.setInt(10, idKV);
+            statement.setInt(9, idKV);
             return statement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -339,6 +339,22 @@ public class ApartmentDAO implements CRUD<Apartment> {
             int wallet = resultSet.getInt(1);
             return wallet;
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public boolean checkwallet(String username){
+        if (findwallet(username)>200){
+            desc(username,findwallet(username));
+            return true;
+        }
+        else return false;
+    }
+    public void desc(String username,int wallet){
+        try (Connection connection = connect_mySQL.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(DEDUCE_WALLET_BYID)) {
+            preparedStatement.setInt(1, (wallet-200));
+            preparedStatement.setString(2,username);
+            preparedStatement.execute();
+    } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

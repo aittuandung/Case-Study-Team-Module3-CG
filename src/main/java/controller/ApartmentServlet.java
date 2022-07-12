@@ -68,6 +68,8 @@ public class ApartmentServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
+                String username = req.getParameter("id");
+
 //                int idCH = Integer.parseInt(req.getParameter("idCH"));
                 String address = req.getParameter("address");
                 Double price = Double.parseDouble(req.getParameter("price"));
@@ -75,9 +77,9 @@ public class ApartmentServlet extends HttpServlet {
                 String picture = req.getParameter("picture");
                 String status = req.getParameter("status");
                 String description = req.getParameter("description");
-                Date datePost = Date.valueOf(req.getParameter("datePost"));
+//                Date datePost = Date.valueOf(req.getParameter("datePost"));
                 String classify = req.getParameter("classify");
-                String username = req.getParameter("id");
+
                 int idKV = Integer.parseInt(req.getParameter("sector"));
 
 //                Apartment apartment = new Apartment(idCH, address, price, area, picture, status, description, datePost, classify, customerDAO.findByName(username),sectorDAO.findById(idKV));
@@ -86,12 +88,21 @@ public class ApartmentServlet extends HttpServlet {
 //                } catch (SQLException e) {
 //                    throw new RuntimeException(e);
 //                }
-                apartmentDAO.addApartment(address, price, area, picture, status, description, datePost, classify, username, idKV);
-                apartments = apartmentDAO.selectAll("a");
-                req.setAttribute("apartments", apartments);
-                requestDispatcher = req.getRequestDispatcher("/showapartment.jsp");
-                requestDispatcher.forward(req, resp);
+                if (apartmentDAO.checkwallet(username)){
+                apartmentDAO.addApartment(address, price, area, picture, status, description, classify, username, idKV);
+//                apartments = apartmentDAO.selectAll("a");
+//                req.setAttribute("apartments", apartments);
+//                requestDispatcher = req.getRequestDispatcher("/showapartment.jsp");
+//                requestDispatcher.forward(req, resp);
+                    String ch="/login?action=chuyenhuong&id="+username;
+                   resp.sendRedirect(ch);
                 break;
+                }else {
+                    req.setAttribute("id", username);
+                    requestDispatcher = req.getRequestDispatcher("/errcustomer.jsp");
+                    requestDispatcher.forward(req, resp);
+                }
+                }
         }
     }
-}
+

@@ -35,17 +35,27 @@ public class LoginServlet extends HttpServlet {
         if (action==null){
             action="";
         }
+        String account=req.getParameter("id");
         switch (action){
             case "logout":
                 Login.account = null;
                 resp.sendRedirect("/index.jsp");
                 break;
             case "createch":
-                String account=req.getParameter("id");
+//                String account=req.getParameter("id");
                 req.setAttribute("sector", sectorDAO.getAll() );
                 req.setAttribute("username",account);
                 dispatcher=req.getRequestDispatcher("/inputApartment.jsp");
                 dispatcher.forward(req,resp);
+            case "chuyenhuong":
+//                String account=req.getParameter("id");
+                apartments= apartmentDAO.selectAll("a");
+                req.setAttribute("username",account);
+                req.setAttribute("apartments",apartments);
+                dispatcher=req.getRequestDispatcher("/indexcustormer.jsp");
+                dispatcher.forward(req,resp);
+                break;
+
             default:
 
 //                req.setAttribute("apartments",apartments);

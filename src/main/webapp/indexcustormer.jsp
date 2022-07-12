@@ -152,7 +152,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="blog-grid.jsp">Blog</a>
+                    <a class="nav-link " href="userCreated.jsp">Bài Đăng Của Bạn</a>
                 </li>
 
                 <li class="nav-item dropdown">

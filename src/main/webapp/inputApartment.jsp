@@ -42,15 +42,19 @@
         </div>
         <div class="form-group">
             <label>Trạng Thái</label>
-            <input type="text" name="status" class="form-control">
+            <select name="status" id="status" class="form-group" style="
+    width: 100%;
+
+    height: 34px;
+    margin-bottom: 15px;">
+                <option value="dangban">Đang bán</option>
+                <option value="sapban">Sắp bán</option>
+            </select>
+<%--            <input type="text" name="status" class="form-control">--%>
         </div>
         <div class="form-group">
             <label>Hướng Nhà</label>
             <input type="text" name="description" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Ngày hiển thị bài đăng</label>
-            <input type="date" name="datePost" class="form-control">
         </div>
             <label>Kiểu loại căn hộ</label>
 
